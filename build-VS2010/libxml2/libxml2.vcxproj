@@ -75,7 +75,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2010\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2010\$(Configuration)-static\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2010\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2010\$(Configuration)\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
@@ -90,7 +90,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2010\$(Platform)\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2010\$(Platform)\$(Configuration)-static\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2010\$(Platform)\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2010\$(Platform)\$(Configuration)\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
@@ -109,7 +109,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2010\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2010\$(Configuration)-static\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2010\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2010\$(Configuration)\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
@@ -128,7 +128,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2010\$(Platform)\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2010\$(Platform)\$(Configuration)-static\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2010\$(Platform)\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2010\$(Platform)\$(Configuration)\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>

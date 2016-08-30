@@ -63,7 +63,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ws2_32.lib ..\..\..\zlib-win-build\build-VS2008\$(ConfigurationName)\libz-static.lib ..\..\..\libiconv-win-build\build-VS2008\$(ConfigurationName)-static\libiconv-static.lib"
+				AdditionalDependencies="ws2_32.lib ..\..\..\zlib-win-build\build-VS2008\$(ConfigurationName)\libz-static.lib ..\..\..\libiconv-win-build\build-VS2008\$(ConfigurationName)\libiconv-static.lib"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
 			/>
@@ -135,7 +135,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ws2_32.lib ..\..\..\zlib-win-build\build-VS2008\$(PlatformName)\$(ConfigurationName)\libz-static.lib ..\..\..\libiconv-win-build\build-VS2008\$(PlatformName)\$(ConfigurationName)-static\libiconv-static.lib"
+				AdditionalDependencies="ws2_32.lib ..\..\..\zlib-win-build\build-VS2008\$(PlatformName)\$(ConfigurationName)\libz-static.lib ..\..\..\libiconv-win-build\build-VS2008\$(PlatformName)\$(ConfigurationName)\libiconv-static.lib"
 				GenerateDebugInformation="true"
 				TargetMachine="17"
 			/>
@@ -207,7 +207,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ws2_32.lib ..\..\..\zlib-win-build\build-VS2008\$(ConfigurationName)\libz-static.lib ..\..\..\libiconv-win-build\build-VS2008\$(ConfigurationName)-static\libiconv-static.lib"
+				AdditionalDependencies="ws2_32.lib ..\..\..\zlib-win-build\build-VS2008\$(ConfigurationName)\libz-static.lib ..\..\..\libiconv-win-build\build-VS2008\$(ConfigurationName)\libiconv-static.lib"
 				GenerateDebugInformation="true"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
@@ -282,7 +282,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ws2_32.lib ..\..\..\zlib-win-build\build-VS2008\$(PlatformName)\$(ConfigurationName)\libz-static.lib ..\..\..\libiconv-win-build\build-VS2008\$(PlatformName)\$(ConfigurationName)-static\libiconv-static.lib"
+				AdditionalDependencies="ws2_32.lib ..\..\..\zlib-win-build\build-VS2008\$(PlatformName)\$(ConfigurationName)\libz-static.lib ..\..\..\libiconv-win-build\build-VS2008\$(PlatformName)\$(ConfigurationName)\libiconv-static.lib"
 				GenerateDebugInformation="true"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
