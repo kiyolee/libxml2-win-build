@@ -709,6 +709,11 @@ xmlWrapStatNative(const char *path,struct stat *info)
 #endif
 }
 
+#if defined(_MSC_VER) && _MSC_VER >= 1800
+#pragma warning(push)
+#pragma warning(disable: 4996) // 'GetVersionExA': was declared deprecated.
+#endif
+
 typedef int (* xmlWrapStatFunc) (const char *f, struct stat *s);
 static xmlWrapStatFunc xmlWrapStat = xmlWrapStatNative;
 typedef FILE* (* xmlWrapOpenFunc)(const char *f,int mode);
@@ -750,6 +755,10 @@ xmlInitPlatformSpecificIo(void)
     xmlPlatformIoInitialized = 1;
     return;
 }
+
+#if defined(_MSC_VER) && _MSC_VER >= 1800
+#pragma warning(pop) // Reset 4996.
+#endif
 
 #endif
 
