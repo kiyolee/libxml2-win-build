@@ -79,7 +79,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2015\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2015\$(Configuration)\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2017\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2017\$(Configuration)\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -93,7 +93,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2015\$(Platform)\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2015\$(Platform)\$(Configuration)\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2017\$(Platform)\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2017\$(Platform)\$(Configuration)\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -111,7 +111,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2015\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2015\$(Configuration)\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2017\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2017\$(Configuration)\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -129,7 +129,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2015\$(Platform)\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2015\$(Platform)\$(Configuration)\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;..\..\..\zlib-win-build\build-VS2017\$(Platform)\$(Configuration)\libz-static.lib;..\..\..\libiconv-win-build\build-VS2017\$(Platform)\$(Configuration)\libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
