@@ -1,0 +1,44 @@
+#include <winver.h>
+
+#define LIBXML2_DOTTED_VERSION   "2.9.4"
+#define LIBXML2_VER_MAJOR        2
+#define LIBXML2_VER_MINOR        9
+#define LIBXML2_VER_REVISION     4
+
+#ifdef GCC_WINDRES
+VS_VERSION_INFO		VERSIONINFO
+#else
+VS_VERSION_INFO		VERSIONINFO	MOVEABLE IMPURE LOADONCALL DISCARDABLE
+#endif
+  FILEVERSION		LIBXML2_VER_MAJOR,LIBXML2_VER_MINOR,LIBXML2_VER_REVISION,0
+  PRODUCTVERSION	LIBXML2_VER_MAJOR,LIBXML2_VER_MINOR,LIBXML2_VER_REVISION,0
+  FILEFLAGSMASK		VS_FFI_FILEFLAGSMASK
+#ifdef _DEBUG
+  FILEFLAGS		1
+#else
+  FILEFLAGS		0
+#endif
+  FILEOS		VOS__WINDOWS32
+  FILETYPE		VFT_DLL
+  FILESUBTYPE		0	// not used
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904E4"
+    //language ID = U.S. English, char set = Windows, Multilingual
+    BEGIN
+      VALUE "FileDescription",	"libxml2 for Windows\0"
+      VALUE "FileVersion",	LIBXML2_DOTTED_VERSION "\0"
+      VALUE "InternalName",	"libxml2.dll\0"
+      VALUE "LegalCopyright",	"Copyright (C) 1998-2012 Daniel Veillard.\0"
+      VALUE "OriginalFilename",	"libxml2.dll\0"
+      VALUE "ProductName",	"libxml2: XML C parser and toolkit\0"
+      VALUE "ProductVersion",	LIBXML2_DOTTED_VERSION "\0"
+      VALUE "Comments",		"For more information visit <http://xmlsoft.org/>. Alternative build from <https://github.com/kiyolee/libxml2-win-build/>.\0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x0409, 1252
+  END
+END
