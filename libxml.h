@@ -101,7 +101,7 @@ int xmlNop(void);
 #ifdef IN_LIBXML
 #ifdef __GNUC__
 #ifdef PIC
-#ifdef linux
+#ifdef __linux__
 #if (__GNUC__ == 3 && __GNUC_MINOR__ >= 3) || (__GNUC__ > 3)
 #include "elfgcchack.h"
 #endif
@@ -109,7 +109,7 @@ int xmlNop(void);
 #endif
 #endif
 #endif
-#if !defined(PIC) && !defined(NOLIBTOOL)
+#if !defined(PIC) && !defined(NOLIBTOOL) && !defined(LIBXML_STATIC)
 #  define LIBXML_STATIC
 #endif
 #endif /* ! __XML_LIBXML_H__ */

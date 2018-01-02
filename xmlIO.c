@@ -12,6 +12,7 @@
 #include "libxml.h"
 
 #include <string.h>
+#include <stddef.h>
 #ifdef HAVE_ERRNO_H
 #include <errno.h>
 #endif
@@ -39,7 +40,8 @@
 #include <lzma.h>
 #endif
 
-#if defined(WIN32) || defined(_WIN32)
+#if defined(_WIN32) && !defined(__CYGWIN__)
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #endif
 
@@ -47,38 +49,14 @@
 #include <winnls.h> /* for CP_UTF8 */
 #endif
 
-/* Figure a portable way to know if a file is a directory. */
-#ifndef HAVE_STAT
-#  ifdef HAVE__STAT
-     /* MS C library seems to define stat and _stat. The definition
-        is identical. Still, mapping them to each other causes a warning. */
-#    ifndef _MSC_VER
-#      define stat(x,y) _stat(x,y)
-#    endif
-#    define HAVE_STAT
-#  endif
-#else
-#  ifdef HAVE__STAT
-#    if defined(_WIN32) || defined (__DJGPP__) && !defined (__CYGWIN__)
-#      define stat _stat
-#    endif
-#  endif
-#endif
-#ifdef HAVE_STAT
-#  ifndef S_ISDIR
-#    ifdef _S_ISDIR
-#      define S_ISDIR(x) _S_ISDIR(x)
-#    else
-#      ifdef S_IFDIR
-#        ifndef S_IFMT
-#          ifdef _S_IFMT
-#            define S_IFMT _S_IFMT
-#          endif
-#        endif
-#        ifdef S_IFMT
-#          define S_ISDIR(m) (((m) & S_IFMT) == S_IFDIR)
-#        endif
-#      endif
+#ifndef S_ISDIR
+#  ifdef _S_ISDIR
+#    define S_ISDIR(x) _S_ISDIR(x)
+#  elif defined(S_IFDIR)
+#    ifdef S_IFMT
+#      define S_ISDIR(m) (((m) & S_IFMT) == S_IFDIR)
+#    elif defined(_S_IFMT)
+#      define S_ISDIR(m) (((m) & _S_IFMT) == S_IFDIR)
 #    endif
 #  endif
 #endif
@@ -656,109 +634,20 @@ xmlWrapGzOpenUtf8(const char *path, const char *mode)
  *
  */
 static int
-xmlWrapStatUtf8(const char *path,struct stat *info)
-{
-#ifdef HAVE_STAT
+xmlWrapStatUtf8(const char *path, struct _stat *info) {
     int retval = -1;
     wchar_t *wPath;
 
     wPath = __xmlIOWin32UTF8ToWChar(path);
-    if (wPath)
-    {
-       retval = _wstat(wPath,info);
+    if (wPath) {
+       retval = _wstat(wPath, info);
        xmlFree(wPath);
     }
     /* maybe path in native encoding */
     if(retval < 0)
-       retval = stat(path,info);
+       retval = _stat(path, info);
     return retval;
-#else
-    return -1;
-#endif
 }
-
-/**
- *  xmlWrapOpenNative:
- * @path:  the path
- * @mode:  type of access (0 - read, 1 - write)
- *
- * function opens the file specified by @path
- *
- */
-static FILE*
-xmlWrapOpenNative(const char *path,int mode)
-{
-    return fopen(path,mode ? "wb" : "rb");
-}
-
-/**
- *  xmlWrapStatNative:
- * @path:  the path
- * @info:  structure that stores results
- *
- * function obtains information about the file or directory
- *
- */
-static int
-xmlWrapStatNative(const char *path,struct stat *info)
-{
-#ifdef HAVE_STAT
-    return stat(path,info);
-#else
-    return -1;
-#endif
-}
-
-#if defined(_MSC_VER) && _MSC_VER >= 1800
-#pragma warning(push)
-#pragma warning(disable: 4996) // 'GetVersionExA': was declared deprecated.
-#endif
-
-typedef int (* xmlWrapStatFunc) (const char *f, struct stat *s);
-static xmlWrapStatFunc xmlWrapStat = xmlWrapStatNative;
-typedef FILE* (* xmlWrapOpenFunc)(const char *f,int mode);
-static xmlWrapOpenFunc xmlWrapOpen = xmlWrapOpenNative;
-#ifdef HAVE_ZLIB_H
-typedef gzFile (* xmlWrapGzOpenFunc) (const char *f, const char *mode);
-static xmlWrapGzOpenFunc xmlWrapGzOpen = gzopen;
-#endif
-/**
- * xmlInitPlatformSpecificIo:
- *
- * Initialize platform specific features.
- */
-static void
-xmlInitPlatformSpecificIo(void)
-{
-    static int xmlPlatformIoInitialized = 0;
-    OSVERSIONINFO osvi;
-
-    if(xmlPlatformIoInitialized)
-      return;
-
-    osvi.dwOSVersionInfoSize = sizeof(osvi);
-
-    if(GetVersionEx(&osvi) && (osvi.dwPlatformId == VER_PLATFORM_WIN32_NT)) {
-      xmlWrapStat = xmlWrapStatUtf8;
-      xmlWrapOpen = xmlWrapOpenUtf8;
-#ifdef HAVE_ZLIB_H
-      xmlWrapGzOpen = xmlWrapGzOpenUtf8;
-#endif
-    } else {
-      xmlWrapStat = xmlWrapStatNative;
-      xmlWrapOpen = xmlWrapOpenNative;
-#ifdef HAVE_ZLIB_H
-      xmlWrapGzOpen = gzopen;
-#endif
-    }
-
-    xmlPlatformIoInitialized = 1;
-    return;
-}
-
-#if defined(_MSC_VER) && _MSC_VER >= 1800
-#pragma warning(pop) // Reset 4996.
-#endif
 
 #endif
 
@@ -780,7 +669,11 @@ int
 xmlCheckFilename (const char *path)
 {
 #ifdef HAVE_STAT
+#if defined(_WIN32) || defined (__DJGPP__) && !defined (__CYGWIN__)
+    struct _stat stat_buffer;
+#else
     struct stat stat_buffer;
+#endif
 #endif
     if (path == NULL)
 	return(0);
@@ -795,7 +688,7 @@ xmlCheckFilename (const char *path)
 	(path[3] == '\\') )
 	    return 1;
 
-    if (xmlWrapStat(path, &stat_buffer) == -1)
+    if (xmlWrapStatUtf8(path, &stat_buffer) == -1)
         return 0;
 #else
     if (stat(path, &stat_buffer) == -1)
@@ -835,7 +728,7 @@ static int
 xmlFdRead (void * context, char * buffer, int len) {
     int ret;
 
-    ret = read((int) (long) context, &buffer[0], len);
+    ret = read((int) (ptrdiff_t) context, &buffer[0], len);
     if (ret < 0) xmlIOErr(0, "read()");
     return(ret);
 }
@@ -856,7 +749,7 @@ xmlFdWrite (void * context, const char * buffer, int len) {
     int ret = 0;
 
     if (len > 0) {
-	ret = write((int) (long) context, &buffer[0], len);
+	ret = write((int) (ptrdiff_t) context, &buffer[0], len);
 	if (ret < 0) xmlIOErr(0, "write()");
     }
     return(ret);
@@ -874,7 +767,7 @@ xmlFdWrite (void * context, const char * buffer, int len) {
 static int
 xmlFdClose (void * context) {
     int ret;
-    ret = close((int) (long) context);
+    ret = close((int) (ptrdiff_t) context);
     if (ret < 0) xmlIOErr(0, "close()");
     return(ret);
 }
@@ -935,11 +828,14 @@ xmlFileOpen_real (const char *filename) {
 #endif
     }
 
+    /* Do not check DDNAME on zOS ! */
+#if !defined(__MVS__)
     if (!xmlCheckFilename(path))
         return(NULL);
+#endif
 
 #if defined(_WIN32) || defined (__DJGPP__) && !defined (__CYGWIN__)
-    fd = xmlWrapOpen(path, 0);
+    fd = xmlWrapOpenUtf8(path, 0);
 #else
     fd = fopen(path, "r");
 #endif /* WIN32 */
@@ -1012,12 +908,14 @@ xmlFileOpenW (const char *filename) {
 	return(NULL);
 
 #if defined(_WIN32) || defined (__DJGPP__) && !defined (__CYGWIN__)
-    fd = xmlWrapOpen(path, 1);
+    fd = xmlWrapOpenUtf8(path, 1);
+#elif(__MVS__)
+    fd = fopen(path, "w");
 #else
-	   fd = fopen(path, "wb");
+    fd = fopen(path, "wb");
 #endif /* WIN32 */
 
-	 if (fd == NULL) xmlIOErr(0, path);
+    if (fd == NULL) xmlIOErr(0, path);
     return((void *) fd);
 }
 #endif /* LIBXML_OUTPUT_ENABLED */
@@ -1202,7 +1100,7 @@ xmlGzfileOpen_real (const char *filename) {
         return(NULL);
 
 #if defined(_WIN32) || defined (__DJGPP__) && !defined (__CYGWIN__)
-    fd = xmlWrapGzOpen(path, "rb");
+    fd = xmlWrapGzOpenUtf8(path, "rb");
 #else
     fd = gzopen(path, "rb");
 #endif
@@ -1279,7 +1177,7 @@ xmlGzfileOpenW (const char *filename, int compression) {
 	return(NULL);
 
 #if defined(_WIN32) || defined (__DJGPP__) && !defined (__CYGWIN__)
-    fd = xmlWrapGzOpen(path, mode);
+    fd = xmlWrapGzOpenUtf8(path, mode);
 #else
     fd = gzopen(path, mode);
 #endif
@@ -1295,7 +1193,7 @@ xmlGzfileOpenW (const char *filename, int compression) {
  *
  * Read @len bytes to @buffer from the compressed I/O channel.
  *
- * Returns the number of bytes written
+ * Returns the number of bytes read.
  */
 static int
 xmlGzfileRead (void * context, char * buffer, int len) {
@@ -1683,7 +1581,7 @@ xmlZMemBuffExtend( xmlZMemBuffPtr buff, size_t ext_amt ) {
 	xmlStrPrintf(msg, 500,
 		    "xmlZMemBuffExtend:  %s %lu bytes.\n",
 		    "Allocation failure extending output buffer to",
-		    new_size );
+		    (unsigned long) new_size );
 	xmlIOErr(XML_IO_WRITE, (const char *) msg);
     }
 
@@ -1885,7 +1783,7 @@ xmlIOHTTPOpen (const char *filename) {
  */
 
 void *
-xmlIOHTTPOpenW(const char *post_uri, int compression)
+xmlIOHTTPOpenW(const char *post_uri, int compression ATTRIBUTE_UNUSED)
 {
 
     xmlIOHTTPWriteCtxtPtr ctxt = NULL;
@@ -2327,10 +2225,6 @@ xmlRegisterDefaultInputCallbacks(void) {
     if (xmlInputCallbackInitialized)
 	return;
 
-#if defined(_WIN32) || defined (__DJGPP__) && !defined (__CYGWIN__)
-    xmlInitPlatformSpecificIo();
-#endif
-
     xmlRegisterInputCallbacks(xmlFileMatch, xmlFileOpen,
 	                      xmlFileRead, xmlFileClose);
 #ifdef HAVE_ZLIB_H
@@ -2364,10 +2258,6 @@ void
 xmlRegisterDefaultOutputCallbacks (void) {
     if (xmlOutputCallbackInitialized)
 	return;
-
-#if defined(_WIN32) || defined (__DJGPP__) && !defined (__CYGWIN__)
-    xmlInitPlatformSpecificIo();
-#endif
 
     xmlRegisterOutputCallbacks(xmlFileMatch, xmlFileOpenW,
 	                      xmlFileWrite, xmlFileClose);
@@ -3012,7 +2902,7 @@ xmlParserInputBufferCreateFd(int fd, xmlCharEncoding enc) {
 
     ret = xmlAllocParserInputBuffer(enc);
     if (ret != NULL) {
-        ret->context = (void *) (long) fd;
+        ret->context = (void *) (ptrdiff_t) fd;
 	ret->readcallback = xmlFdRead;
 	ret->closecallback = xmlFdClose;
     }
@@ -3036,7 +2926,7 @@ xmlParserInputBufferCreateMem(const char *mem, int size, xmlCharEncoding enc) {
     xmlParserInputBufferPtr ret;
     int errcode;
 
-    if (size <= 0) return(NULL);
+    if (size < 0) return(NULL);
     if (mem == NULL) return(NULL);
 
     ret = xmlAllocParserInputBuffer(enc);
@@ -3072,7 +2962,7 @@ xmlParserInputBufferCreateStatic(const char *mem, int size,
                                  xmlCharEncoding enc) {
     xmlParserInputBufferPtr ret;
 
-    if (size <= 0) return(NULL);
+    if (size < 0) return(NULL);
     if (mem == NULL) return(NULL);
 
     ret = (xmlParserInputBufferPtr) xmlMalloc(sizeof(xmlParserInputBuffer));
@@ -3118,7 +3008,7 @@ xmlOutputBufferCreateFd(int fd, xmlCharEncodingHandlerPtr encoder) {
 
     ret = xmlAllocOutputBufferInternal(encoder);
     if (ret != NULL) {
-        ret->context = (void *) (long) fd;
+        ret->context = (void *) (ptrdiff_t) fd;
 	ret->writecallback = xmlFdWrite;
 	ret->closecallback = NULL;
     }
@@ -3832,7 +3722,7 @@ xmlParserGetDirectory(const char *filename) {
 
     if (filename == NULL) return(NULL);
 
-#if defined(WIN32) && !defined(__CYGWIN__)
+#if defined(_WIN32) && !defined(__CYGWIN__)
 #   define IS_XMLPGD_SEP(ch) ((ch=='/')||(ch=='\\'))
 #else
 #   define IS_XMLPGD_SEP(ch) (ch=='/')

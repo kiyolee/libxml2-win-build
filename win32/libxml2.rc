@@ -1,9 +1,9 @@
 #include <winver.h>
 
-#define LIBXML2_VERSION_STR     "2.9.4"
+#define LIBXML2_VERSION_STR     "2.9.7"
 #define LIBXML2_VER_MAJOR       2
 #define LIBXML2_VER_MINOR       9
-#define LIBXML2_VER_REVISION    4
+#define LIBXML2_VER_REVISION    7
 
 #ifdef GCC_WINDRES
 VS_VERSION_INFO		VERSIONINFO
