@@ -69,7 +69,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <StringPooling>true</StringPooling>
-      <PreprocessorDefinitions>LIBXML_STATIC;WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;HAVE_ZLIB_H;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LIBXML_STATIC;WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\win32;..\..;..\..\include;..\..\..\libiconv-win-build\include;..\..\..\zlib-win-build</AdditionalIncludeDirectories>
       <OmitDefaultLibName>true</OmitDefaultLibName>
     </ClCompile>
@@ -82,7 +82,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <StringPooling>true</StringPooling>
-      <PreprocessorDefinitions>LIBXML_STATIC;WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;HAVE_ZLIB_H;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LIBXML_STATIC;WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\win32;..\..;..\..\include;..\..\..\libiconv-win-build\include;..\..\..\zlib-win-build</AdditionalIncludeDirectories>
       <OmitDefaultLibName>true</OmitDefaultLibName>
     </ClCompile>
@@ -97,7 +97,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <StringPooling>true</StringPooling>
-      <PreprocessorDefinitions>LIBXML_STATIC;WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;HAVE_ZLIB_H;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LIBXML_STATIC;WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\win32;..\..;..\..\include;..\..\..\libiconv-win-build\include;..\..\..\zlib-win-build</AdditionalIncludeDirectories>
       <OmitDefaultLibName>true</OmitDefaultLibName>
     </ClCompile>
@@ -114,7 +114,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <StringPooling>true</StringPooling>
-      <PreprocessorDefinitions>LIBXML_STATIC;WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;HAVE_ZLIB_H;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LIBXML_STATIC;WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\win32;..\..;..\..\include;..\..\..\libiconv-win-build\include;..\..\..\zlib-win-build</AdditionalIncludeDirectories>
       <OmitDefaultLibName>true</OmitDefaultLibName>
     </ClCompile>
