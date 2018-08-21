@@ -477,12 +477,14 @@ int wrap_cmp( xmlNodePtr x, xmlNodePtr y );
  *									*
  ************************************************************************/
 
-#ifndef NAN
-#define NAN (0.0 / 0.0)
+#if defined(_MSC_VER) && _MSC_VER < 1700
+#ifndef INFINITY
+#define INFINITY ((float)(1e+300 * 1e+300))
 #endif
 
-#ifndef INFINITY
-#define INFINITY HUGE_VAL
+#ifndef NAN
+#define NAN ((float)(INFINITY * 0.0F))
+#endif
 #endif
 
 double xmlXPathNAN = NAN;
