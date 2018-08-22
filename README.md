@@ -2,7 +2,7 @@
 
 libxml2 Windows build with Visual Studio.
 
-This version is libxml2-2.9.7.
+This version is libxml2-2.9.8.
 
 See win-build-info for general information about the
 win-build effort.
