@@ -625,6 +625,18 @@ xmlWrapGzOpenUtf8(const char *path, const char *mode)
 }
 #endif
 
+#ifdef HAVE_STAT
+#if defined(_WIN32) || defined (__DJGPP__) && !defined (__CYGWIN__)
+#if defined (_WIN64)
+typedef struct _stati64 _stat_t;
+#else
+typedef struct _stat _stat_t;
+#endif
+#else
+typedef struct stat _stat_t;
+#endif
+#endif
+
 /**
  *  xmlWrapStatUtf8:
  * @path:  the path in utf-8 encoding
@@ -634,7 +646,7 @@ xmlWrapGzOpenUtf8(const char *path, const char *mode)
  *
  */
 static int
-xmlWrapStatUtf8(const char *path, struct _stat *info) {
+xmlWrapStatUtf8(const char *path, _stat_t *info) {
     int retval = -1;
     wchar_t *wPath;
 
@@ -649,7 +661,11 @@ xmlWrapStatUtf8(const char *path, struct _stat *info) {
     }
     /* maybe path in native encoding */
     if(retval < 0)
+    #if defined (_WIN64)
+       retval = _stati64(path, info);
+    #else
        retval = _stat(path, info);
+    #endif
     return retval;
 }
 
@@ -672,17 +688,7 @@ xmlWrapStatUtf8(const char *path, struct _stat *info) {
 int
 xmlCheckFilename (const char *path)
 {
-#ifdef HAVE_STAT
-#if defined(_WIN32) || defined (__DJGPP__) && !defined (__CYGWIN__)
-#if defined (_WIN64)
-    struct _stati64 stat_buffer;
-#else
-    struct _stat stat_buffer;
-#endif
-#else
-    struct stat stat_buffer;
-#endif
-#endif
+    _stat_t stat_buffer;
     if (path == NULL)
 	return(0);
 
