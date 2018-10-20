@@ -11,8 +11,9 @@ To build, simply open the required solution file, and
 you know how to use Visual Studio, right?
 (or perhaps this is the wrong place for you.)
 
-Depends on libiconv-win-build and zlib-win-build, currently some hard references
-assuming both libiconv-win-build and zlib-win-build sit next to libxml2-win-build.
+Depends on libiconv-win-build and zlib-win-build.
+There are hard references assuming both libiconv-win-build and
+zlib-win-build sit next to libxml2-win-build.
 
 Basically, in a command prompt:
 
