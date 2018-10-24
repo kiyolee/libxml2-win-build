@@ -44,7 +44,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\..\..\win32;..\..\..\include;..\..\..\..\libiconv-win-build\include;..\..\..\..\zlib-win-build"
-				PreprocessorDefinitions="WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG"
+				PreprocessorDefinitions="LIBXML_STATIC;WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG"
 				StringPooling="true"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -116,7 +116,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\..\..\win32;..\..\..\include;..\..\..\..\libiconv-win-build\include;..\..\..\..\zlib-win-build"
-				PreprocessorDefinitions="WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG"
+				PreprocessorDefinitions="LIBXML_STATIC;WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG"
 				StringPooling="true"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -135,7 +135,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="setargv.obj ws2_32.lib $(OutDir)\libxml2-static.lib ..\..\..\..\zlib-win-build\build-VS2008\$(Platform)\$(ConfigurationName)\libz-static.lib ..\..\..\..\libiconv-win-build\build-VS2008\$(Platform)\$(ConfigurationName)\libiconv-static.lib"
+				AdditionalDependencies="setargv.obj ws2_32.lib $(OutDir)\libxml2-static.lib ..\..\..\..\zlib-win-build\build-VS2008\$(PlatformName)\$(ConfigurationName)\libz-static.lib ..\..\..\..\libiconv-win-build\build-VS2008\$(PlatformName)\$(ConfigurationName)\libiconv-static.lib"
 				GenerateDebugInformation="true"
 				TargetMachine="17"
 			/>
@@ -189,7 +189,7 @@
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
 				AdditionalIncludeDirectories="..\..\..\win32;..\..\..\include;..\..\..\..\libiconv-win-build\include;..\..\..\..\zlib-win-build"
-				PreprocessorDefinitions="WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;NDEBUG"
+				PreprocessorDefinitions="LIBXML_STATIC;WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;NDEBUG"
 				StringPooling="true"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -264,7 +264,7 @@
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
 				AdditionalIncludeDirectories="..\..\..\win32;..\..\..\include;..\..\..\..\libiconv-win-build\include;..\..\..\..\zlib-win-build"
-				PreprocessorDefinitions="WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;NDEBUG"
+				PreprocessorDefinitions="LIBXML_STATIC;WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;HAVE_WIN32_THREADS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;NDEBUG"
 				StringPooling="true"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -282,7 +282,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="setargv.obj ws2_32.lib $(OutDir)\libxml2-static.lib ..\..\..\..\zlib-win-build\build-VS2008\$(Platform)\$(ConfigurationName)\libz-static.lib ..\..\..\..\libiconv-win-build\build-VS2008\$(Platform)\$(ConfigurationName)\libiconv-static.lib"
+				AdditionalDependencies="setargv.obj ws2_32.lib $(OutDir)\libxml2-static.lib ..\..\..\..\zlib-win-build\build-VS2008\$(PlatformName)\$(ConfigurationName)\libz-static.lib ..\..\..\..\libiconv-win-build\build-VS2008\$(PlatformName)\$(ConfigurationName)\libiconv-static.lib"
 				GenerateDebugInformation="true"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
