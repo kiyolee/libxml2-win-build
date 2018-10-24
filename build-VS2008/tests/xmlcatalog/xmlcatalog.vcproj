@@ -63,7 +63,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="$(OutDir)\libxml2.lib"
+				AdditionalDependencies="setargv.obj $(OutDir)\libxml2.lib"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
 			/>
@@ -135,7 +135,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="$(OutDir)\libxml2.lib"
+				AdditionalDependencies="setargv.obj $(OutDir)\libxml2.lib"
 				GenerateDebugInformation="true"
 				TargetMachine="17"
 			/>
@@ -207,7 +207,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="$(OutDir)\libxml2.lib"
+				AdditionalDependencies="setargv.obj $(OutDir)\libxml2.lib"
 				GenerateDebugInformation="true"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
@@ -282,7 +282,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="$(OutDir)\libxml2.lib"
+				AdditionalDependencies="setargv.obj $(OutDir)\libxml2.lib"
 				GenerateDebugInformation="true"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"

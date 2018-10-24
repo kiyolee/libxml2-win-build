@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="runsuite"
-	ProjectGUID="{58998B68-394A-43A9-8709-878B75187283}"
-	RootNamespace="runsuite"
+	Name="xmllint-static"
+	ProjectGUID="{F4ACFCBF-3CCF-471E-BD54-3BECF8E39A46}"
+	RootNamespace="xmllint-static"
 	TargetFrameworkVersion="196613"
 	>
 	<Platforms>
@@ -63,7 +63,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="setargv.obj $(OutDir)\libxml2.lib"
+				AdditionalDependencies="setargv.obj ws2_32.lib $(OutDir)\libxml2-static.lib ..\..\..\..\zlib-win-build\build-VS2008\$(ConfigurationName)\libz-static.lib ..\..\..\..\libiconv-win-build\build-VS2008\$(ConfigurationName)\libiconv-static.lib"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
 			/>
@@ -135,7 +135,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="setargv.obj $(OutDir)\libxml2.lib"
+				AdditionalDependencies="setargv.obj ws2_32.lib $(OutDir)\libxml2-static.lib ..\..\..\..\zlib-win-build\build-VS2008\$(Platform)\$(ConfigurationName)\libz-static.lib ..\..\..\..\libiconv-win-build\build-VS2008\$(Platform)\$(ConfigurationName)\libiconv-static.lib"
 				GenerateDebugInformation="true"
 				TargetMachine="17"
 			/>
@@ -207,7 +207,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="setargv.obj $(OutDir)\libxml2.lib"
+				AdditionalDependencies="setargv.obj ws2_32.lib $(OutDir)\libxml2-static.lib ..\..\..\..\zlib-win-build\build-VS2008\$(ConfigurationName)\libz-static.lib ..\..\..\..\libiconv-win-build\build-VS2008\$(ConfigurationName)\libiconv-static.lib"
 				GenerateDebugInformation="true"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
@@ -282,7 +282,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="setargv.obj $(OutDir)\libxml2.lib"
+				AdditionalDependencies="setargv.obj ws2_32.lib $(OutDir)\libxml2-static.lib ..\..\..\..\zlib-win-build\build-VS2008\$(Platform)\$(ConfigurationName)\libz-static.lib ..\..\..\..\libiconv-win-build\build-VS2008\$(Platform)\$(ConfigurationName)\libiconv-static.lib"
 				GenerateDebugInformation="true"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
@@ -320,7 +320,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\..\runsuite.c"
+				RelativePath="..\..\..\xmllint.c"
 				>
 			</File>
 		</Filter>
