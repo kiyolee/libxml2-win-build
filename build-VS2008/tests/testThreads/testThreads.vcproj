@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="testThreadsWin32"
+	Name="testThreads"
 	ProjectGUID="{A1FDF23B-F8C0-407D-B9ED-933C5ACD5043}"
-	RootNamespace="testThreadsWin32"
+	RootNamespace="testThreads"
 	TargetFrameworkVersion="196613"
 	>
 	<Platforms>

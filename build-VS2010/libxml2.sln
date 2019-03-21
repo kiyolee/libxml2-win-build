@@ -79,7 +79,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testSchemas", "tests\testSc
 		{512C3CCF-59F0-4FDC-84DA-3E1012C746C2} = {512C3CCF-59F0-4FDC-84DA-3E1012C746C2}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testThreadsWin32", "tests\testThreadsWin32\testThreadsWin32.vcxproj", "{DED990B0-A6C8-4255-B848-23F5746F4735}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testThreads", "tests\testThreads\testThreads.vcxproj", "{DED990B0-A6C8-4255-B848-23F5746F4735}"
 	ProjectSection(ProjectDependencies) = postProject
 		{512C3CCF-59F0-4FDC-84DA-3E1012C746C2} = {512C3CCF-59F0-4FDC-84DA-3E1012C746C2}
 	EndProjectSection
