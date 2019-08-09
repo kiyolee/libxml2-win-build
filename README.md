@@ -17,9 +17,9 @@ zlib-win-build sit next to libxml2-win-build.
 
 Basically, in a command prompt:
 
-> \> cd {somewhere}\\  
-> \> git clone https://github.com/kiyolee/libiconv-win-build.git  
-> \> git clone https://github.com/kiyolee/zlib-win-build.git  
+> \> cd {somewhere}\\
+> \> git clone https://github.com/kiyolee/libiconv-win-build.git
+> \> git clone https://github.com/kiyolee/zlib-win-build.git
 > \> git clone https://github.com/kiyolee/libxml2-win-build.git
 
 Build libiconv and zlib first and then libxml2, with the same corresponding Visual Studio solution of course.
