@@ -23,3 +23,6 @@ Basically, in a command prompt:
 > \> git clone https://github.com/kiyolee/libxml2-win-build.git
 
 Build libiconv and zlib first and then libxml2, with the same corresponding Visual Studio solution of course.
+
+This repository tracks only officially released versions of libxml2.
+Check branch win-build of https://github.com/kiyolee/libxml2.git that follows latest development.
