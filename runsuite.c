@@ -1,5 +1,5 @@
 /*
- * runsuite.c: C program to run libxml2 againts published testsuites
+ * runsuite.c: C program to run libxml2 against published testsuites
  *
  * See Copyright for the status of this software.
  *
@@ -227,13 +227,13 @@ initializeLibxml2(void) {
     * Deactivate the cache if created; otherwise we have to create/free it
     * for every test, since it will confuse the memory leak detection.
     * Note that normally this need not be done, since the cache is not
-    * created until set explicitely with xmlXPathContextSetCache();
-    * but for test purposes it is sometimes usefull to activate the
+    * created until set explicitly with xmlXPathContextSetCache();
+    * but for test purposes it is sometimes useful to activate the
     * cache by default for the whole library.
     */
     if (ctxtXPath->cache != NULL)
 	xmlXPathContextSetCache(ctxtXPath, 0, -1, 0);
-    /* used as default nanemspace in xstc tests */
+    /* used as default namespace in xstc tests */
     xmlXPathRegisterNs(ctxtXPath, BAD_CAST "ts", BAD_CAST "TestSuite");
     xmlXPathRegisterNs(ctxtXPath, BAD_CAST "xlink",
                        BAD_CAST "http://www.w3.org/1999/xlink");
@@ -306,7 +306,7 @@ getString(xmlNodePtr cur, const char *xpath) {
  ************************************************************************/
 
 static int
-xsdIncorectTestCase(xmlNodePtr cur) {
+xsdIncorrectTestCase(xmlNodePtr cur) {
     xmlNodePtr test;
     xmlBufferPtr buf;
     xmlRelaxNGParserCtxtPtr pctxt;
@@ -337,14 +337,12 @@ xsdIncorectTestCase(xmlNodePtr cur) {
     }
     xmlNodeDump(buf, test->doc, test, 0, 0);
     pctxt = xmlRelaxNGNewMemParserCtxt((const char *)buf->content, buf->use);
-    xmlRelaxNGSetParserErrors(pctxt,
-         (xmlRelaxNGValidityErrorFunc) testErrorHandler,
-         (xmlRelaxNGValidityWarningFunc) testErrorHandler,
-	 pctxt);
+    xmlRelaxNGSetParserErrors(pctxt, testErrorHandler, testErrorHandler,
+            pctxt);
     rng = xmlRelaxNGParse(pctxt);
     xmlRelaxNGFreeParserCtxt(pctxt);
     if (rng != NULL) {
-	test_log("Failed to detect incorect RNG line %ld\n",
+	test_log("Failed to detect incorrect RNG line %ld\n",
 		    xmlGetLineNo(test));
         ret = 1;
 	goto done;
@@ -450,7 +448,7 @@ xsdTestCase(xmlNodePtr tst) {
 
     cur = getNext(tst, "./correct[1]");
     if (cur == NULL) {
-        return(xsdIncorectTestCase(tst));
+        return(xsdIncorrectTestCase(tst));
     }
 
     test = getNext(cur, "./*");
@@ -472,10 +470,8 @@ xsdTestCase(xmlNodePtr tst) {
     }
     xmlNodeDump(buf, test->doc, test, 0, 0);
     pctxt = xmlRelaxNGNewMemParserCtxt((const char *)buf->content, buf->use);
-    xmlRelaxNGSetParserErrors(pctxt,
-         (xmlRelaxNGValidityErrorFunc) testErrorHandler,
-         (xmlRelaxNGValidityWarningFunc) testErrorHandler,
-	 pctxt);
+    xmlRelaxNGSetParserErrors(pctxt, testErrorHandler, testErrorHandler,
+            pctxt);
     rng = xmlRelaxNGParse(pctxt);
     xmlRelaxNGFreeParserCtxt(pctxt);
     if (extraMemoryFromResolver)
@@ -520,9 +516,7 @@ xsdTestCase(xmlNodePtr tst) {
 		nb_tests++;
 	        ctxt = xmlRelaxNGNewValidCtxt(rng);
 		xmlRelaxNGSetValidErrors(ctxt,
-		     (xmlRelaxNGValidityErrorFunc) testErrorHandler,
-		     (xmlRelaxNGValidityWarningFunc) testErrorHandler,
-		     ctxt);
+                        testErrorHandler, testErrorHandler, ctxt);
 		ret = xmlRelaxNGValidateDoc(ctxt, doc);
 		xmlRelaxNGFreeValidCtxt(ctxt);
 		if (ret > 0) {
@@ -577,9 +571,7 @@ xsdTestCase(xmlNodePtr tst) {
 		nb_tests++;
 	        ctxt = xmlRelaxNGNewValidCtxt(rng);
 		xmlRelaxNGSetValidErrors(ctxt,
-		     (xmlRelaxNGValidityErrorFunc) testErrorHandler,
-		     (xmlRelaxNGValidityWarningFunc) testErrorHandler,
-		     ctxt);
+                        testErrorHandler, testErrorHandler, ctxt);
 		ret = xmlRelaxNGValidateDoc(ctxt, doc);
 		xmlRelaxNGFreeValidCtxt(ctxt);
 		if (ret == 0) {
@@ -835,10 +827,7 @@ xstcTestInstance(xmlNodePtr cur, xmlSchemaPtr schemas,
     }
 
     ctxt = xmlSchemaNewValidCtxt(schemas);
-    xmlSchemaSetValidErrors(ctxt,
-         (xmlSchemaValidityErrorFunc) testErrorHandler,
-         (xmlSchemaValidityWarningFunc) testErrorHandler,
-	 ctxt);
+    xmlSchemaSetValidErrors(ctxt, testErrorHandler, testErrorHandler, ctxt);
     ret = xmlSchemaValidateDoc(ctxt, doc);
 
     if (xmlStrEqual(validity, BAD_CAST "valid")) {
@@ -926,10 +915,8 @@ xstcTestGroup(xmlNodePtr cur, const char *base) {
     if (xmlStrEqual(validity, BAD_CAST "valid")) {
         nb_schematas++;
 	ctxt = xmlSchemaNewParserCtxt((const char *) path);
-	xmlSchemaSetParserErrors(ctxt,
-	     (xmlSchemaValidityErrorFunc) testErrorHandler,
-	     (xmlSchemaValidityWarningFunc) testErrorHandler,
-	     ctxt);
+	xmlSchemaSetParserErrors(ctxt, testErrorHandler, testErrorHandler,
+                ctxt);
 	schemas = xmlSchemaParse(ctxt);
 	xmlSchemaFreeParserCtxt(ctxt);
 	if (schemas == NULL) {
@@ -962,10 +949,8 @@ xstcTestGroup(xmlNodePtr cur, const char *base) {
     } else if (xmlStrEqual(validity, BAD_CAST "invalid")) {
         nb_schematas++;
 	ctxt = xmlSchemaNewParserCtxt((const char *) path);
-	xmlSchemaSetParserErrors(ctxt,
-	     (xmlSchemaValidityErrorFunc) testErrorHandler,
-	     (xmlSchemaValidityWarningFunc) testErrorHandler,
-	     ctxt);
+	xmlSchemaSetParserErrors(ctxt, testErrorHandler, testErrorHandler,
+                ctxt);
 	schemas = xmlSchemaParse(ctxt);
 	xmlSchemaFreeParserCtxt(ctxt);
 	if (schemas != NULL) {
