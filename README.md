@@ -2,7 +2,7 @@
 
 libxml2 Windows build with Visual Studio.
 
-This version is libxml2-2.9.10.
+This version is libxml2-2.9.12.
 
 To build, simply open the required solution file, and
 you know how to use Visual Studio, right?
