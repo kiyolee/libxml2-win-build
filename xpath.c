@@ -492,6 +492,11 @@ double xmlXPathNAN;
 double xmlXPathPINF;
 double xmlXPathNINF;
 
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable: 4723) // potential divide by 0
+#endif
+
 /**
  * xmlXPathInit:
  *
@@ -506,6 +511,10 @@ xmlXPathInit(void) {
     xmlXPathPINF = 1.0 / zero;
     xmlXPathNINF = -xmlXPathPINF;
 }
+
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
 /**
  * xmlXPathIsNaN:
@@ -10983,7 +10992,7 @@ xmlXPathCompileExpr(xmlXPathParserContextPtr ctxt, int sort) {
     }
 
     if (xpctxt != NULL)
-        xpctxt->depth -= 1;
+        xpctxt->depth -= 10;
 }
 
 /**
@@ -11120,7 +11129,9 @@ xmlXPathCompNodeTest(xmlXPathParserContextPtr ctxt, xmlXPathTestVal *test,
 	    name = NULL;
 	    if (CUR != ')') {
 		name = xmlXPathParseLiteral(ctxt);
-		CHECK_ERROR NULL;
+                if (name == NULL) {
+	            XP_ERRORNULL(XPATH_EXPR_ERROR);
+                }
 		*test = NODE_TEST_PI;
 		SKIP_BLANKS;
 	    }
