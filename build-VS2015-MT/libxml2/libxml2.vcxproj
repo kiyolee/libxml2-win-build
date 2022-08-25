@@ -103,7 +103,6 @@
     <ClCompile Include="..\..\chvalid.c" />
     <ClCompile Include="..\..\debugXML.c" />
     <ClCompile Include="..\..\dict.c" />
-    <ClCompile Include="..\..\DOCBparser.c" />
     <ClCompile Include="..\..\encoding.c" />
     <ClCompile Include="..\..\entities.c" />
     <ClCompile Include="..\..\error.c" />
@@ -144,14 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\buf.h" />
-    <ClInclude Include="..\..\elfgcchack.h" />
     <ClInclude Include="..\..\enc.h" />
     <ClInclude Include="..\..\include\libxml\c14n.h" />
     <ClInclude Include="..\..\include\libxml\catalog.h" />
     <ClInclude Include="..\..\include\libxml\chvalid.h" />
     <ClInclude Include="..\..\include\libxml\debugXML.h" />
     <ClInclude Include="..\..\include\libxml\dict.h" />
-    <ClInclude Include="..\..\include\libxml\DOCBparser.h" />
     <ClInclude Include="..\..\include\libxml\encoding.h" />
     <ClInclude Include="..\..\include\libxml\entities.h" />
     <ClInclude Include="..\..\include\libxml\globals.h" />

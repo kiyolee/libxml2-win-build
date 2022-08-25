@@ -102,9 +102,6 @@
     <ClCompile Include="..\..\dict.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\DOCBparser.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\encoding.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -174,9 +171,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\buf.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\elfgcchack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\enc.h">
@@ -252,9 +246,6 @@
       <Filter>Header Files\include\libxml</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\libxml\dict.h">
-      <Filter>Header Files\include\libxml</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\libxml\DOCBparser.h">
       <Filter>Header Files\include\libxml</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\libxml\encoding.h">

@@ -344,10 +344,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\DOCBparser.c"
-				>
-			</File>
-			<File
 				RelativePath="..\..\encoding.c"
 				>
 			</File>
@@ -506,10 +502,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\elfgcchack.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\enc.h"
 				>
 			</File>
@@ -569,10 +561,6 @@
 					</File>
 					<File
 						RelativePath="..\..\include\libxml\dict.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\include\libxml\DOCBparser.h"
 						>
 					</File>
 					<File
