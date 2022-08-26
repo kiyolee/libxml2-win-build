@@ -16,10 +16,12 @@
 
 #if defined(_MSC_VER) && _MSC_VER < 1900
 #define snprintf _snprintf
+#if _MSC_VER >= 1600
 #define vsnprintf _vsnprintf
 #endif
+#endif
 
-#if defined(_MSC_VER)
+#if defined(_MSC_VER) && _MSC_VER >= 1600
 #define open _open
 #define close _close
 #define read _read
