@@ -1,7 +1,7 @@
 2044417e2e5006b65a8b9067b683fcf1  Copyright
-f29832195ad5df8805e27c20ac34a8e4  HTMLparser.c
+2901861396ac6276275637405564ff5a  HTMLparser.c
 0b97b8c1bdc38e109296f5a4c141aeba  HTMLtree.c
-2d0a17913b48b417019e44706c98ba41  NEWS
+ea079f05b94b80c0b3cf823cd4b2cce3  NEWS
 20ddcfc57668d30b75927170382b54b7  README.libxml2.md
 2774afd7cdd927d278dcc64f73112e0a  SAX.c
 99c88e6a80ebbbf20c026d4603632e20  SAX2.c
@@ -61,7 +61,7 @@ c087d0e891d6909b14966bccde02fcfc  include/libxml/xmlschemas.h
 0df732f7028b4448819a96f40496c974  include/libxml/xmlschemastypes.h
 82efb8a055d5fc8eb7d815ed471eca53  include/libxml/xmlstring.h
 b9f0b8acddfee9b620ea822978a51d29  include/libxml/xmlunicode.h
-00350490d4cf6280a515b87db7aa030d  include/libxml/xmlversion.h
+08d3b447f900b3970e8025136bd2c370  include/libxml/xmlversion.h
 8694436144b1fb0aab2e2d6b725035e3  include/libxml/xmlwriter.h
 e076cbab82b50ae94693f67f78ca44d0  include/libxml/xpath.h
 c18fad3cce22369a75166afed6343bcd  include/libxml/xpathInternals.h
@@ -72,7 +72,7 @@ e0e6aa73c7fef1eb9329d6635aff1f8a  libxml.h
 678e168c1dacffd4da8d528e4e733d05  list.c
 625a1379e3570f3e613614222dac5e09  nanoftp.c
 aa81cd3d31ddfb30036d9f3e5643eca7  nanohttp.c
-d5c008213d83f0a3a70355e06b6d82ab  parser.c
+888260ca4cce5fba59bc8eff8b74f91a  parser.c
 0d139b0fe3d524ed818f989346ff29f8  parserInternals.c
 beb05fbffe621fa21ef78f7f4ed28d28  pattern.c
 f9ec39b0d1ed17a1d42ac2ac1ed3ba42  relaxng.c
