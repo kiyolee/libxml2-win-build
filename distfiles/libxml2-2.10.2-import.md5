@@ -1,7 +1,7 @@
 2044417e2e5006b65a8b9067b683fcf1  Copyright
 2901861396ac6276275637405564ff5a  HTMLparser.c
 0b97b8c1bdc38e109296f5a4c141aeba  HTMLtree.c
-ea079f05b94b80c0b3cf823cd4b2cce3  NEWS
+16e910001d4483767af8b44ea90f243d  NEWS
 20ddcfc57668d30b75927170382b54b7  README.libxml2.md
 2774afd7cdd927d278dcc64f73112e0a  SAX.c
 99c88e6a80ebbbf20c026d4603632e20  SAX2.c
@@ -61,7 +61,6 @@ c087d0e891d6909b14966bccde02fcfc  include/libxml/xmlschemas.h
 0df732f7028b4448819a96f40496c974  include/libxml/xmlschemastypes.h
 82efb8a055d5fc8eb7d815ed471eca53  include/libxml/xmlstring.h
 b9f0b8acddfee9b620ea822978a51d29  include/libxml/xmlunicode.h
-08d3b447f900b3970e8025136bd2c370  include/libxml/xmlversion.h
 8694436144b1fb0aab2e2d6b725035e3  include/libxml/xmlwriter.h
 e076cbab82b50ae94693f67f78ca44d0  include/libxml/xpath.h
 c18fad3cce22369a75166afed6343bcd  include/libxml/xpathInternals.h
@@ -84,7 +83,7 @@ a95be95b3cc68b61944dc849c66884eb  save.h
 44cd2de93b4cf1b57b6e8714f9c07016  testAutomata.c
 a416fa2b1ae0952390a5bccd31771dbd  testModule.c
 77afdf1c1d7ac0f9e61a2a75637a6e01  testThreads.c
-1f20c4c2b94a2709ae57f8ae66b1acd4  testapi.c
+dddd46b74a2568f8638b9991e17acf24  testapi.c
 054c0288258cc6d6d3e019279183d325  testchar.c
 61ff8111023f4d5d9fa05c441dd0b0cb  testdict.c
 6a3e7cbf9864c04639a1a8ac0c388ea2  testdso.c
@@ -92,7 +91,7 @@ a416fa2b1ae0952390a5bccd31771dbd  testModule.c
 f74d794acc809e85dcd9b2302ba972d1  testrecurse.c
 2fc9a4feb7c84783fec13f17cab73af9  threads.c
 1bcb15667ab695cdd2cc8d5b1bc05169  timsort.h
-30833c3ea50256569f686209b1c04e34  tree.c
+81a1db1b7d69a8618839a02c1366b7e8  tree.c
 5b543ee91a3c2f2c4fb79e37caa071ea  trio.c
 8b21aea67b16387f2f61a9f36717cdb9  trio.h
 a1e52d4d4c9bcba53027aa2fd65c4eef  triodef.h
@@ -120,7 +119,7 @@ d46197299b1241a22194cf8308e019c9  xmlschemas.c
 6bfffea3e825ee37c680d2022fd97bba  xmlstring.c
 c9097be7e143f99684f19d937a775144  xmlunicode.c
 6fd2abe3e9a1f091159ee3662a99c73f  xmlwriter.c
-eeac87567d3d38c42cae7cf066c45d36  xpath.c
+cdccc947ec84efd55499ad65af5541c4  xpath.c
 9d4a602c1abc00ddf3a63b52822bf015  xpointer.c
 32c7f7d9f60b28c3f4c3d76a4cc8d9c6  xzlib.c
 c010ff16cb21a367dc80b95322033772  xzlib.h

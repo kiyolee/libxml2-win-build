@@ -61,7 +61,6 @@ include/libxml/xmlschemas.h
 include/libxml/xmlschemastypes.h
 include/libxml/xmlstring.h
 include/libxml/xmlunicode.h
-include/libxml/xmlversion.h
 include/libxml/xmlwriter.h
 include/libxml/xpath.h
 include/libxml/xpathInternals.h
