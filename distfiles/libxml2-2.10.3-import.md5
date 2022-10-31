@@ -1,10 +1,10 @@
 2044417e2e5006b65a8b9067b683fcf1  Copyright
 2901861396ac6276275637405564ff5a  HTMLparser.c
 0b97b8c1bdc38e109296f5a4c141aeba  HTMLtree.c
-16e910001d4483767af8b44ea90f243d  NEWS
+71e5bf1f49b3c3bc032d3d78b31afd2c  NEWS
 20ddcfc57668d30b75927170382b54b7  README.libxml2.md
 2774afd7cdd927d278dcc64f73112e0a  SAX.c
-99c88e6a80ebbbf20c026d4603632e20  SAX2.c
+44cd0eb20963b45a15c33086febc37ed  SAX2.c
 0b955a82b82ffad323c004cf40f5e907  TODO
 20571eabce9aea49a7b6be95f830c8ec  TODO_SCHEMAS
 58d1e36ded88aa497ad1f1f7d7aa3341  buf.c
@@ -16,7 +16,7 @@ b02f3b01dc801e41415fc4280a83ef63  debugXML.c
 6101d669900c57e7597a9799bb2a67eb  dict.c
 ba968a7ff7d49c6975eeddee901d5fe6  enc.h
 84e07eefab42b2898e73266c47505470  encoding.c
-4669e49f5326fcd8b5907619c7dbc2b5  entities.c
+0dd13674fa6807154e32dc1ed60b49b5  entities.c
 30e75e2e02ad6275ab0e48f7e796c6b3  error.c
 29bba704a73adc98f4f5187a7342ad32  globals.c
 7d68745af4cb19944b9f461911d45efd  hash.c
@@ -71,7 +71,7 @@ e0e6aa73c7fef1eb9329d6635aff1f8a  libxml.h
 678e168c1dacffd4da8d528e4e733d05  list.c
 625a1379e3570f3e613614222dac5e09  nanoftp.c
 aa81cd3d31ddfb30036d9f3e5643eca7  nanohttp.c
-888260ca4cce5fba59bc8eff8b74f91a  parser.c
+9edc47d28e42c87509387b68cbb2e8c9  parser.c
 0d139b0fe3d524ed818f989346ff29f8  parserInternals.c
 beb05fbffe621fa21ef78f7f4ed28d28  pattern.c
 f9ec39b0d1ed17a1d42ac2ac1ed3ba42  relaxng.c
@@ -102,7 +102,7 @@ ae2f0b85a98ac525c8a215e509ac63b1  triostr.c
 b93afcad9107d48ce7e66b84db7159c7  triostr.h
 4dbe7ce696b40833f64cae8c9cd18191  uri.c
 f540db773f504987ee099b0ce2565c3c  valid.c
-f2059566940a5b648f4e70d732bd9af9  win32/config.h
+0cc740791a508b871139998bc0869706  win32/config.h
 9ca0965eeabe09b4f8d9a1c6c5d8c3b0  win32/libxml2.rc
 391fd7d8fe9d7175ea51c4f41e2b2bb3  xinclude.c
 9f218b277dc3a2b22bc70e4149769d4b  xlink.c

@@ -14,10 +14,12 @@
 #define HAVE_STDINT_H
 #endif
 
-#if defined(_MSC_VER) && _MSC_VER < 1900
+#if defined(_MSC_VER)
+#if _MSC_VER < 1900
 #define snprintf _snprintf
-#if _MSC_VER >= 1600
-#define vsnprintf _vsnprintf
+#endif
+#if _MSC_VER >= 1600 && _MSC_VER < 1900
+#define vsnprintf(b,c,f,a) _vsnprintf(b,c,f,a)
 #endif
 #endif
 
