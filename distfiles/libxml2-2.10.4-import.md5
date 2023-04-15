@@ -1,10 +1,11 @@
 2044417e2e5006b65a8b9067b683fcf1  Copyright
 2901861396ac6276275637405564ff5a  HTMLparser.c
 0b97b8c1bdc38e109296f5a4c141aeba  HTMLtree.c
-71e5bf1f49b3c3bc032d3d78b31afd2c  NEWS
+dd63184811cb2ff705c3e466364d3773  INSTALL
+382655c1b2da65d7a81d3c94ba3857f4  NEWS
 20ddcfc57668d30b75927170382b54b7  README.libxml2.md
 2774afd7cdd927d278dcc64f73112e0a  SAX.c
-44cd0eb20963b45a15c33086febc37ed  SAX2.c
+c19e79523248532cc73fc9a345be1b88  SAX2.c
 0b955a82b82ffad323c004cf40f5e907  TODO
 20571eabce9aea49a7b6be95f830c8ec  TODO_SCHEMAS
 58d1e36ded88aa497ad1f1f7d7aa3341  buf.c
@@ -13,7 +14,7 @@ d3e5d3ca744a04564850c07a749313ee  buf.h
 476e200f80ac4bcb73d766866ab16226  catalog.c
 50595b5d3e8f8d8bb95e19c263bd8122  chvalid.c
 b02f3b01dc801e41415fc4280a83ef63  debugXML.c
-6101d669900c57e7597a9799bb2a67eb  dict.c
+b3b91dc8db94c9da7e2448aea00ea31d  dict.c
 ba968a7ff7d49c6975eeddee901d5fe6  enc.h
 84e07eefab42b2898e73266c47505470  encoding.c
 0dd13674fa6807154e32dc1ed60b49b5  entities.c
@@ -106,7 +107,7 @@ f540db773f504987ee099b0ce2565c3c  valid.c
 9ca0965eeabe09b4f8d9a1c6c5d8c3b0  win32/libxml2.rc
 391fd7d8fe9d7175ea51c4f41e2b2bb3  xinclude.c
 9f218b277dc3a2b22bc70e4149769d4b  xlink.c
-ffaf73008a904aa4a8821d5f67f20cf4  xmlIO.c
+d7169e0897716eb0e35aafa8380ae5b0  xmlIO.c
 835e0efcd30cc825de039265830090cc  xmlcatalog.c
 3413db6c597d4bb260b77c35f1f17fdc  xmllint.c
 39d2ad00a47d96da345f3b6454cbc10a  xmlmemory.c
@@ -114,7 +115,7 @@ d02b1c981833eaa27e58834b4bcd5e9c  xmlmodule.c
 73aac95473fc95c5c60e94486d3da19f  xmlreader.c
 9baff07fda19112b9f7a02c2299a361e  xmlregexp.c
 4c9b286b087cc1494b23f28a61d85d55  xmlsave.c
-d46197299b1241a22194cf8308e019c9  xmlschemas.c
+5d77b2d10434cad15df818a111e083c7  xmlschemas.c
 622dec4a70fbd3cbb94e123278a32a7a  xmlschemastypes.c
 6bfffea3e825ee37c680d2022fd97bba  xmlstring.c
 c9097be7e143f99684f19d937a775144  xmlunicode.c
