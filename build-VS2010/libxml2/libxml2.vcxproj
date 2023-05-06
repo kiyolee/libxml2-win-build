@@ -138,8 +138,6 @@
     <ClCompile Include="..\..\xpointer.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\buf.h" />
-    <ClInclude Include="..\..\enc.h" />
     <ClInclude Include="..\..\include\libxml\c14n.h" />
     <ClInclude Include="..\..\include\libxml\catalog.h" />
     <ClInclude Include="..\..\include\libxml\chvalid.h" />
@@ -186,15 +184,31 @@
     <ClInclude Include="..\..\include\libxml\xpath.h" />
     <ClInclude Include="..\..\include\libxml\xpathInternals.h" />
     <ClInclude Include="..\..\include\libxml\xpointer.h" />
+    <ClInclude Include="..\..\include\private\buf.h" />
+    <ClInclude Include="..\..\include\private\dict.h" />
+    <ClInclude Include="..\..\include\private\enc.h" />
+    <ClInclude Include="..\..\include\private\entities.h" />
+    <ClInclude Include="..\..\include\private\error.h" />
+    <ClInclude Include="..\..\include\private\globals.h" />
+    <ClInclude Include="..\..\include\private\html.h" />
+    <ClInclude Include="..\..\include\private\io.h" />
+    <ClInclude Include="..\..\include\private\memory.h" />
+    <ClInclude Include="..\..\include\private\parser.h" />
+    <ClInclude Include="..\..\include\private\regexp.h" />
+    <ClInclude Include="..\..\include\private\save.h" />
+    <ClInclude Include="..\..\include\private\string.h" />
+    <ClInclude Include="..\..\include\private\threads.h" />
+    <ClInclude Include="..\..\include\private\tree.h" />
+    <ClInclude Include="..\..\include\private\xinclude.h" />
+    <ClInclude Include="..\..\include\private\xpath.h" />
+    <ClInclude Include="..\..\include\private\xzlib.h" />
     <ClInclude Include="..\..\include\wsockcompat.h" />
     <ClInclude Include="..\..\libxml.h" />
-    <ClInclude Include="..\..\save.h" />
     <ClInclude Include="..\..\timsort.h" />
     <ClInclude Include="..\..\trio.h" />
     <ClInclude Include="..\..\triodef.h" />
     <ClInclude Include="..\..\trionan.h" />
     <ClInclude Include="..\..\win32\config.h" />
-    <ClInclude Include="..\..\xzlib.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\..\win32\libxml2.rc" />

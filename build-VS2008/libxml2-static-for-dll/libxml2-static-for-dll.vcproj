@@ -466,19 +466,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\buf.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\enc.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\libxml.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\save.h"
 				>
 			</File>
 			<File
@@ -495,10 +483,6 @@
 			</File>
 			<File
 				RelativePath="..\..\trionan.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\xzlib.h"
 				>
 			</File>
 			<Filter
@@ -693,6 +677,82 @@
 					</File>
 					<File
 						RelativePath="..\..\include\libxml\xpointer.h"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="private"
+					>
+					<File
+						RelativePath="..\..\include\private\buf.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\dict.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\enc.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\entities.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\error.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\globals.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\html.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\io.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\memory.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\parser.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\regexp.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\save.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\string.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\threads.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\tree.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\xinclude.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\xpath.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\include\private\xzlib.h"
 						>
 					</File>
 				</Filter>

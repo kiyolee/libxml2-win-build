@@ -5,12 +5,13 @@
  * copy: see Copyright for the status of this software.
  */
 
+#define XML_DEPRECATED
+
 #include <stdio.h>
 #include <string.h>
+#include <libxml/tree.h>
 #include <libxml/parser.h>
 #include <libxml/parserInternals.h>
-
-#include "buf.h"
 
 int lastError;
 
@@ -260,9 +261,10 @@ static int testDocumentRanges(void) {
     return(test_ret);
 }
 
-static int testCharRangeByte1(xmlParserCtxtPtr ctxt, char *data) {
+static int testCharRangeByte1(xmlParserCtxtPtr ctxt) {
     int i = 0;
     int len, c;
+    char *data = (char *) ctxt->input->cur;
 
     data[1] = 0;
     data[2] = 0;
@@ -270,6 +272,7 @@ static int testCharRangeByte1(xmlParserCtxtPtr ctxt, char *data) {
     for (i = 0;i <= 0xFF;i++) {
         data[0] = (char) i;
 	ctxt->charset = XML_CHAR_ENCODING_UTF8;
+        ctxt->nbErrors = 0;
 
 	lastError = 0;
         c = xmlCurrentChar(ctxt, &len);
@@ -293,9 +296,10 @@ static int testCharRangeByte1(xmlParserCtxtPtr ctxt, char *data) {
     return(0);
 }
 
-static int testCharRangeByte2(xmlParserCtxtPtr ctxt, char *data) {
+static int testCharRangeByte2(xmlParserCtxtPtr ctxt) {
     int i, j;
     int len, c;
+    char *data = (char *) ctxt->input->cur;
 
     data[2] = 0;
     data[3] = 0;
@@ -304,6 +308,7 @@ static int testCharRangeByte2(xmlParserCtxtPtr ctxt, char *data) {
 	    data[0] = (char) i;
 	    data[1] = (char) j;
 	    ctxt->charset = XML_CHAR_ENCODING_UTF8;
+            ctxt->nbErrors = 0;
 
 	    lastError = 0;
 	    c = xmlCurrentChar(ctxt, &len);
@@ -380,10 +385,11 @@ static int testCharRangeByte2(xmlParserCtxtPtr ctxt, char *data) {
     return(0);
 }
 
-static int testCharRangeByte3(xmlParserCtxtPtr ctxt, char *data) {
+static int testCharRangeByte3(xmlParserCtxtPtr ctxt) {
     int i, j, k, K;
     int len, c;
     unsigned char lows[6] = {0, 0x80, 0x81, 0xC1, 0xFF, 0xBF};
+    char *data = (char *) ctxt->input->cur;
     int value;
 
     data[3] = 0;
@@ -396,6 +402,7 @@ static int testCharRangeByte3(xmlParserCtxtPtr ctxt, char *data) {
 	data[2] = (char) K;
 	value = (K & 0x3F) + ((j & 0x3F) << 6) + ((i & 0xF) << 12);
 	ctxt->charset = XML_CHAR_ENCODING_UTF8;
+        ctxt->nbErrors = 0;
 
 	lastError = 0;
 	c = xmlCurrentChar(ctxt, &len);
@@ -477,10 +484,11 @@ static int testCharRangeByte3(xmlParserCtxtPtr ctxt, char *data) {
     return(0);
 }
 
-static int testCharRangeByte4(xmlParserCtxtPtr ctxt, char *data) {
+static int testCharRangeByte4(xmlParserCtxtPtr ctxt) {
     int i, j, k, K, l, L;
     int len, c;
     unsigned char lows[6] = {0, 0x80, 0x81, 0xC1, 0xFF, 0xBF};
+    char *data = (char *) ctxt->input->cur;
     int value;
 
     data[4] = 0;
@@ -497,6 +505,7 @@ static int testCharRangeByte4(xmlParserCtxtPtr ctxt, char *data) {
 	value = (L & 0x3F) + ((K & 0x3F) << 6) + ((j & 0x3F) << 12) +
 	        ((i & 0x7) << 18);
 	ctxt->charset = XML_CHAR_ENCODING_UTF8;
+        ctxt->nbErrors = 0;
 
 	lastError = 0;
 	c = xmlCurrentChar(ctxt, &len);
@@ -607,8 +616,8 @@ static int testCharRanges(void) {
         fprintf(stderr, "Failed to allocate parser context\n");
 	return(1);
     }
-    buf = xmlParserInputBufferCreateStatic(data, sizeof(data),
-                                           XML_CHAR_ENCODING_NONE);
+    buf = xmlParserInputBufferCreateMem(data, sizeof(data),
+                                        XML_CHAR_ENCODING_NONE);
     if (buf == NULL) {
         fprintf(stderr, "Failed to allocate input buffer\n");
 	test_ret = 1;
@@ -629,22 +638,79 @@ static int testCharRanges(void) {
 
     printf("testing char range: 1");
     fflush(stdout);
-    test_ret += testCharRangeByte1(ctxt, data);
+    test_ret += testCharRangeByte1(ctxt);
     printf(" 2");
     fflush(stdout);
-    test_ret += testCharRangeByte2(ctxt, data);
+    test_ret += testCharRangeByte2(ctxt);
     printf(" 3");
     fflush(stdout);
-    test_ret += testCharRangeByte3(ctxt, data);
+    test_ret += testCharRangeByte3(ctxt);
     printf(" 4");
     fflush(stdout);
-    test_ret += testCharRangeByte4(ctxt, data);
+    test_ret += testCharRangeByte4(ctxt);
     printf(" done\n");
     fflush(stdout);
 
 error:
     xmlFreeParserCtxt(ctxt);
     return(test_ret);
+}
+
+static int
+testUserEncoding(void) {
+    /*
+     * Create a document encoded as UTF-16LE with an ISO-8859-1 encoding
+     * declaration, then parse it with xmlReadMemory and the encoding
+     * argument set to UTF-16LE.
+     */
+    xmlDocPtr doc = NULL;
+    const char *start = "<?xml version='1.0' encoding='ISO-8859-1'?><d>";
+    const char *end = "</d>";
+    char *buf = NULL;
+    xmlChar *text;
+    int startSize = strlen(start);
+    int textSize = 100000; /* Make sure to exceed internal buffer sizes. */
+    int endSize = strlen(end);
+    int totalSize = startSize + textSize + endSize;
+    int k = 0;
+    int i;
+    int ret = 1;
+
+    buf = xmlMalloc(2 * totalSize);
+    for (i = 0; start[i] != 0; i++) {
+        buf[k++] = start[i];
+        buf[k++] = 0;
+    }
+    for (i = 0; i < textSize; i++) {
+        buf[k++] = 'x';
+        buf[k++] = 0;
+    }
+    for (i = 0; end[i] != 0; i++) {
+        buf[k++] = end[i];
+        buf[k++] = 0;
+    }
+
+    doc = xmlReadMemory(buf, 2 * totalSize, NULL, "UTF-16LE", 0);
+    if (doc == NULL) {
+        fprintf(stderr, "failed to parse document\n");
+        goto error;
+    }
+
+    text = doc->children->children->content;
+    for (i = 0; i < textSize; i++) {
+        if (text[i] != 'x') {
+            fprintf(stderr, "text node has wrong content at offset %d\n", k);
+            goto error;
+        }
+    }
+
+    ret = 0;
+
+error:
+    xmlFreeDoc(doc);
+    xmlFree(buf);
+
+    return ret;
 }
 
 int main(void) {
@@ -669,6 +735,7 @@ int main(void) {
      */
     ret += testCharRanges();
     ret += testDocumentRanges();
+    ret += testUserEncoding();
 
     /*
      * Cleanup function for the XML library.

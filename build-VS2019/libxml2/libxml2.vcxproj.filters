@@ -22,6 +22,9 @@
     <Filter Include="Header Files\include\libxml">
       <UniqueIdentifier>{e6a364fb-6950-4a3a-b0b9-465d90609c30}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\include\private">
+      <UniqueIdentifier>{8732bbc4-a044-4410-8777-550e49eaf212}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\schematron.c">
@@ -167,19 +170,7 @@
     <ClInclude Include="..\..\trionan.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\xzlib.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\buf.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\enc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\libxml.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\save.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\timsort.h">
@@ -325,6 +316,60 @@
     </ClInclude>
     <ClInclude Include="..\..\include\libxml\xmlexports.h">
       <Filter>Header Files\include\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\io.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\memory.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\parser.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\regexp.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\save.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\string.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\threads.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\tree.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\xinclude.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\xpath.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\xzlib.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\buf.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\dict.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\enc.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\entities.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\error.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\globals.h">
+      <Filter>Header Files\include\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\private\html.h">
+      <Filter>Header Files\include\private</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
