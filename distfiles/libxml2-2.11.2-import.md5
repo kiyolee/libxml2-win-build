@@ -2,7 +2,7 @@
 5aa30e4781d7c802b78ad4346632485d  HTMLparser.c
 7bcee4dcda730f1f34029529f3cc24a4  HTMLtree.c
 dd63184811cb2ff705c3e466364d3773  INSTALL
-0a2919900311850373da0da1091a1866  NEWS
+483c4a6ae3c2d8b11a3214f6f828932d  NEWS
 c67f840acaa24a4752ec5a09c5b7c9ab  README.libxml2.md
 2774afd7cdd927d278dcc64f73112e0a  SAX.c
 5d0ea4ec1675df4c37ed947df682ff39  SAX2.c
@@ -102,7 +102,7 @@ a70de618e84b71bd979257c20ef76ed6  testapi.c
 6a3e7cbf9864c04639a1a8ac0c388ea2  testdso.c
 faa9683f6a6ac530580dbbdf5398ebf4  testlimits.c
 b00561797b221da46b637a7f07a4ca47  testrecurse.c
-5f1d6df52b8e6c92fd28cdf4d173933e  threads.c
+f7d8b57119d8b99c6e7060b6a2df76e5  threads.c
 1bcb15667ab695cdd2cc8d5b1bc05169  timsort.h
 33aa87506aa2ceea11ea8bc4eb4f9e4a  tree.c
 5b543ee91a3c2f2c4fb79e37caa071ea  trio.c
@@ -127,7 +127,7 @@ d24282d60bbe45ed5270123ddd616338  xmlmodule.c
 588ba864dc998dcf18c2ae5d1ecec3e1  xmlreader.c
 42b86059e1db9ca6672e13d3c70927fb  xmlregexp.c
 1b03edb4857d07f0ee4d1e83748e028d  xmlsave.c
-4c4960d66dc8cc9e350d1bf672875945  xmlschemas.c
+790e5844d6c7ab4775598bb6461816f6  xmlschemas.c
 6da278ee21769737e4e1feeee3ab035c  xmlschemastypes.c
 301320f513401f69a457d2244b74e0ce  xmlstring.c
 c9097be7e143f99684f19d937a775144  xmlunicode.c
