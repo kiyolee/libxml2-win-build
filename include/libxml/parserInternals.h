@@ -571,7 +571,9 @@ XMLPUBFUN int			namePush		(xmlParserCtxtPtr ctxt,
  */
 XML_DEPRECATED
 XMLPUBFUN int			xmlSkipBlankChars	(xmlParserCtxtPtr ctxt);
+#ifndef IN_LIBXSLT
 XML_DEPRECATED
+#endif
 XMLPUBFUN int			xmlStringCurrentChar	(xmlParserCtxtPtr ctxt,
 						 const xmlChar *cur,
 						 int *len);
