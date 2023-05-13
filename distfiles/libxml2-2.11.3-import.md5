@@ -2,7 +2,7 @@
 5aa30e4781d7c802b78ad4346632485d  HTMLparser.c
 7bcee4dcda730f1f34029529f3cc24a4  HTMLtree.c
 dd63184811cb2ff705c3e466364d3773  INSTALL
-483c4a6ae3c2d8b11a3214f6f828932d  NEWS
+39aea02633e5243ad3798ee268a34a9d  NEWS
 c67f840acaa24a4752ec5a09c5b7c9ab  README.libxml2.md
 2774afd7cdd927d278dcc64f73112e0a  SAX.c
 5d0ea4ec1675df4c37ed947df682ff39  SAX2.c
@@ -16,7 +16,7 @@ ddcde834b9814a62484792cb4d43d818  encoding.c
 69b32cc1f920b2f9711188339d3b7bf1  entities.c
 995ff47ccab1f48334af0aa2d583363d  error.c
 c4bfe79f78632f78477d4aaf66dabac0  globals.c
-b74dde02dd575642a9766865bff71f86  hash.c
+6c817d9e0a35525ccd8588f1056c89ba  hash.c
 2c227e091729597bc58d2db5b4f39c40  include/libxml/HTMLparser.h
 bb4e2df91d33306ab3c2d71374559877  include/libxml/HTMLtree.h
 0c58ccf8877437ec2f6eb25a757390ce  include/libxml/SAX.h
@@ -87,7 +87,7 @@ e857d2ed47c0848d6f469ebc16ef31f1  include/wsockcompat.h
 a591291901040a0c5a8a4c187154d1de  nanoftp.c
 e0bf81a96bd2674a5c51710b76b3b20a  nanohttp.c
 e73e07a7e57282942ac51b34094e45c9  parser.c
-b4ae584843c3be05853922a6d6e337c6  parserInternals.c
+f3a661d72d9c0335fcd5a5ee948ddbee  parserInternals.c
 247aeee5286dc32f9212a71764c8916b  pattern.c
 be5da77f293be48c4611cc4dd456954d  relaxng.c
 b171015076b703294c403dd53c4ef090  runsuite.c
@@ -117,7 +117,7 @@ b93afcad9107d48ce7e66b84db7159c7  triostr.h
 2484a530d30990c79f9002d8c9cafc05  valid.c
 8ab2045fb3bb5553449a93c85ebbb58a  win32/config.h
 9ca0965eeabe09b4f8d9a1c6c5d8c3b0  win32/libxml2.rc
-e0385edf56285036e8ab8446fd800e44  xinclude.c
+522288d11cc98596d91f31e3fe0be623  xinclude.c
 9f218b277dc3a2b22bc70e4149769d4b  xlink.c
 bc1724b5253c9b0e7456b287d8bae923  xmlIO.c
 7c8aa0de4638c1e05f88ff33611c3ad7  xmlcatalog.c
@@ -132,6 +132,6 @@ d24282d60bbe45ed5270123ddd616338  xmlmodule.c
 301320f513401f69a457d2244b74e0ce  xmlstring.c
 c9097be7e143f99684f19d937a775144  xmlunicode.c
 cc579d914daa83c6df6bbe6eb7a5d607  xmlwriter.c
-e96e7f59c12b6fa57e64667026e785f8  xpath.c
+6c9d05ceaf4a465a039f943f6a515fac  xpath.c
 3de863efef9f75362dac766adf7e29b3  xpointer.c
 42fdfd06059e0bdc32b787d6b170e2cb  xzlib.c
