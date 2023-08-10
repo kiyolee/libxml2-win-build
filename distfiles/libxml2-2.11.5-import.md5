@@ -2,7 +2,7 @@
 5aa30e4781d7c802b78ad4346632485d  HTMLparser.c
 7bcee4dcda730f1f34029529f3cc24a4  HTMLtree.c
 dd63184811cb2ff705c3e466364d3773  INSTALL
-201a96e1d38a965133ab1e20247dc32a  NEWS
+62461ef3728d78e6efc8eef32c328fb7  NEWS
 c67f840acaa24a4752ec5a09c5b7c9ab  README.libxml2.md
 2774afd7cdd927d278dcc64f73112e0a  SAX.c
 5d0ea4ec1675df4c37ed947df682ff39  SAX2.c
@@ -12,7 +12,7 @@ a536890733c06b4090b266b4d22fa1f1  buf.c
 691708e81dee605336b6ef6e431c5c21  chvalid.c
 bc5831ddfd2b39024dbb79d40feb2f11  debugXML.c
 2b84cdba1eaacd8dbfed17767acb119f  dict.c
-ddcde834b9814a62484792cb4d43d818  encoding.c
+8fff981ba3edc07157249a12002707eb  encoding.c
 69b32cc1f920b2f9711188339d3b7bf1  entities.c
 995ff47ccab1f48334af0aa2d583363d  error.c
 c4bfe79f78632f78477d4aaf66dabac0  globals.c
@@ -87,11 +87,11 @@ e857d2ed47c0848d6f469ebc16ef31f1  include/wsockcompat.h
 a591291901040a0c5a8a4c187154d1de  nanoftp.c
 e0bf81a96bd2674a5c51710b76b3b20a  nanohttp.c
 524e02fec3580c1095a6ed1650ec1b6d  parser.c
-f22c5bb3a2fa2ed3567e83a25dbcc774  parserInternals.c
+f550ff2a457ef62a9e2998229d8845bd  parserInternals.c
 247aeee5286dc32f9212a71764c8916b  pattern.c
 be5da77f293be48c4611cc4dd456954d  relaxng.c
 b171015076b703294c403dd53c4ef090  runsuite.c
-6857bd5f4ddd3f6507f3fa012066ebbf  runtest.c
+a4c234b609c9401f40b610411fec2784  runtest.c
 070f367286829e0e4cbd981e9ecea477  runxmlconf.c
 4f824a5e2e80f7124e4d3fe4b2a279da  schematron.c
 4e028dff30d3ecca9f57e9fd2ebb2693  testModule.c
@@ -114,7 +114,7 @@ e79fa3e246145ff28ae6ee96c797b78c  triop.h
 ae2f0b85a98ac525c8a215e509ac63b1  triostr.c
 b93afcad9107d48ce7e66b84db7159c7  triostr.h
 268e3941c4ccdbdb01208744d2c889ab  uri.c
-2484a530d30990c79f9002d8c9cafc05  valid.c
+066dd4b173bb083b59489feda5a57884  valid.c
 8ab2045fb3bb5553449a93c85ebbb58a  win32/config.h
 9ca0965eeabe09b4f8d9a1c6c5d8c3b0  win32/libxml2.rc
 522288d11cc98596d91f31e3fe0be623  xinclude.c
