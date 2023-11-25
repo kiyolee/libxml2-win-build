@@ -10,9 +10,10 @@
  * daniel@veillard.com
  */
 
-#include "libxml.h"
+#include "config.h"
 #include <stdio.h>
 
+#include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
 
@@ -444,7 +445,7 @@ xmlParserPrintFileContextInternal(xmlParserInputPtr input ,
 }
 
 static void
-testStructuredErrorHandler(void *ctx  ATTRIBUTE_UNUSED, xmlErrorPtr err) {
+testStructuredErrorHandler(void *ctx ATTRIBUTE_UNUSED, const xmlError *err) {
     char *file = NULL;
     int line = 0;
     int code = -1;
@@ -627,9 +628,6 @@ testStructuredErrorHandler(void *ctx  ATTRIBUTE_UNUSED, xmlErrorPtr err) {
 
 static void
 initializeLibxml2(void) {
-    xmlGetWarningsDefaultValue = 0;
-    xmlPedanticParserDefault(0);
-
     xmlMemSetup(xmlMemFree, xmlMemMalloc, xmlMemRealloc, xmlMemoryStrdup);
     xmlInitParser();
     xmlSetExternalEntityLoader(testExternalEntityLoader);
@@ -1005,7 +1003,12 @@ hugeDtdTest(const char *filename ATTRIBUTE_UNUSED,
         total_size = strlen(hugeDocParts->start) +
                      strlen(hugeDocParts->segment) * (MAX_NODES - 1) +
                      strlen(hugeDocParts->finish) +
-                     28;
+                     /*
+                      * Other external entities pa.ent, pb.ent, pc.ent.
+                      * These are currently counted twice because they're
+                      * used both in DTD and EntityValue.
+                      */
+                     (16 + 6 + 6) * 2;
         if (ctxt->sizeentities != total_size) {
             fprintf(stderr, "Wrong parsed entity size: %lu (expected %lu)\n",
                     ctxt->sizeentities, total_size);
@@ -1218,7 +1221,6 @@ main(int argc ATTRIBUTE_UNUSED, char **argv ATTRIBUTE_UNUSED) {
 	       nb_tests, nb_errors, nb_leaks);
     }
     xmlCleanupParser();
-    xmlMemoryDump();
 
     return(ret);
 }

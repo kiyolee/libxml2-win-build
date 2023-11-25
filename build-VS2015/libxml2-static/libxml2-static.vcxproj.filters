@@ -156,6 +156,9 @@
     <ClCompile Include="..\..\SAX2.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\xzlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\win32\config.h">

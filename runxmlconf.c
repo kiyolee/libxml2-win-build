@@ -6,10 +6,11 @@
  * daniel@veillard.com
  */
 
-#include "libxml.h"
+#include "config.h"
 #include <stdio.h>
+#include <libxml/xmlversion.h>
 
-#ifdef LIBXML_XPATH_ENABLED
+#if defined(LIBXML_XPATH_ENABLED) && defined(LIBXML_VALID_ENABLED)
 
 #include <string.h>
 #include <sys/stat.h>
@@ -131,7 +132,7 @@ static void test_log(const char *msg, ...) {
 }
 
 static void
-testErrorHandler(void *userData ATTRIBUTE_UNUSED, xmlErrorPtr error) {
+testErrorHandler(void *userData ATTRIBUTE_UNUSED, const xmlError *error) {
     int res;
 
     if (testErrorsSize >= 32768)
@@ -158,9 +159,6 @@ static xmlXPathContextPtr ctxtXPath;
 
 static void
 initializeLibxml2(void) {
-    xmlGetWarningsDefaultValue = 0;
-    xmlPedanticParserDefault(0);
-
     xmlMemSetup(xmlMemFree, xmlMemMalloc, xmlMemRealloc, xmlMemoryStrdup);
     xmlInitParser();
     xmlSetExternalEntityLoader(testExternalEntityLoader);
@@ -262,8 +260,10 @@ xmlconfTestNotNSWF(const char *id, const char *filename, int options) {
         nb_errors++;
 	ret = 0;
     } else {
-	if ((xmlLastError.code == XML_ERR_OK) ||
-	    (xmlLastError.domain != XML_FROM_NAMESPACE)) {
+        const xmlError *error = xmlGetLastError();
+
+	if ((error->code == XML_ERR_OK) ||
+	    (error->domain != XML_FROM_NAMESPACE)) {
 	    test_log("test %s : %s failed to detect namespace error\n",
 		     id, filename);
 	    nb_errors++;
@@ -596,7 +596,6 @@ main(int argc ATTRIBUTE_UNUSED, char **argv ATTRIBUTE_UNUSED) {
     }
     xmlXPathFreeContext(ctxtXPath);
     xmlCleanupParser();
-    xmlMemoryDump();
 
     if (logfile != NULL)
         fclose(logfile);
@@ -604,9 +603,9 @@ main(int argc ATTRIBUTE_UNUSED, char **argv ATTRIBUTE_UNUSED) {
 }
 
 #else /* ! LIBXML_XPATH_ENABLED */
-#include <stdio.h>
 int
 main(int argc ATTRIBUTE_UNUSED, char **argv) {
-    fprintf(stderr, "%s need XPath support\n", argv[0]);
+    fprintf(stderr, "%s need XPath and validation support\n", argv[0]);
+    return(0);
 }
 #endif

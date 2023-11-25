@@ -66,7 +66,6 @@
 #ifdef LIBXML_CATALOG_ENABLED
 #include <libxml/catalog.h>
 #endif
-#include <libxml/globals.h>
 #include <libxml/xmlreader.h>
 #ifdef LIBXML_SCHEMATRON_ENABLED
 #include <libxml/schematron.h>
@@ -197,6 +196,7 @@ static const char *xpathquery = NULL;
 static int options = XML_PARSE_COMPACT | XML_PARSE_BIG_LINES;
 static int sax = 0;
 static int oldxml10 = 0;
+static unsigned maxAmpl = 0;
 
 /************************************************************************
  *									*
@@ -1651,6 +1651,8 @@ testSAX(const char *filename) {
             progresult = XMLLINT_ERR_MEM;
 	    return;
 	}
+        if (maxAmpl > 0)
+            xmlCtxtSetMaxAmplification(ctxt, maxAmpl);
         xmlCtxtReadFile(ctxt, filename, NULL, options);
 
 	if (ctxt->myDoc != NULL) {
@@ -1802,6 +1804,8 @@ static void streamFile(char *filename) {
 
 
     if (reader != NULL) {
+        if (maxAmpl > 0)
+            xmlTextReaderSetMaxAmplification(reader, maxAmpl);
 #ifdef LIBXML_VALID_ENABLED
 	if (valid)
 	    xmlTextReaderSetParserProp(reader, XML_PARSER_VALIDATE, 1);
@@ -2129,38 +2133,39 @@ static void parseAndPrintFile(char *filename, xmlParserCtxtPtr rectxt) {
 #ifdef LIBXML_PUSH_ENABLED
     else if ((html) && (push)) {
         FILE *f;
+        int res;
+        char chars[4096];
+        htmlParserCtxtPtr ctxt;
 
         if ((filename[0] == '-') && (filename[1] == 0)) {
             f = stdin;
         } else {
 	    f = fopen(filename, "rb");
-        }
-        if (f != NULL) {
-            int res;
-            char chars[4096];
-            htmlParserCtxtPtr ctxt;
-
-            res = fread(chars, 1, 4, f);
-            if (res > 0) {
-                ctxt = htmlCreatePushParserCtxt(NULL, NULL,
-                            chars, res, filename, XML_CHAR_ENCODING_NONE);
-                if (ctxt == NULL) {
-                    progresult = XMLLINT_ERR_MEM;
-                    if (f != stdin)
-                        fclose(f);
-                    return;
-                }
-                htmlCtxtUseOptions(ctxt, options);
-                while ((res = fread(chars, 1, pushsize, f)) > 0) {
-                    htmlParseChunk(ctxt, chars, res, 0);
-                }
-                htmlParseChunk(ctxt, chars, 0, 1);
-                doc = ctxt->myDoc;
-                htmlFreeParserCtxt(ctxt);
+            if (f == NULL) {
+                fprintf(stderr, "Can't open %s\n", filename);
+                progresult = XMLLINT_ERR_UNCLASS;
+                return;
             }
+        }
+
+        res = fread(chars, 1, 4, f);
+        ctxt = htmlCreatePushParserCtxt(NULL, NULL,
+                    chars, res, filename, XML_CHAR_ENCODING_NONE);
+        if (ctxt == NULL) {
+            progresult = XMLLINT_ERR_MEM;
             if (f != stdin)
                 fclose(f);
+            return;
         }
+        htmlCtxtUseOptions(ctxt, options);
+        while ((res = fread(chars, 1, pushsize, f)) > 0) {
+            htmlParseChunk(ctxt, chars, res, 0);
+        }
+        htmlParseChunk(ctxt, chars, 0, 1);
+        doc = ctxt->myDoc;
+        htmlFreeParserCtxt(ctxt);
+        if (f != stdin)
+            fclose(f);
     }
 #endif /* LIBXML_PUSH_ENABLED */
 #ifdef HAVE_MMAP
@@ -2198,46 +2203,48 @@ static void parseAndPrintFile(char *filename, xmlParserCtxtPtr rectxt) {
 	 */
 	if (push) {
 	    FILE *f;
+            int ret;
+            int res, size = 1024;
+            char chars[1024];
+            xmlParserCtxtPtr ctxt;
 
 	    /* '-' Usually means stdin -<sven@zen.org> */
 	    if ((filename[0] == '-') && (filename[1] == 0)) {
 	        f = stdin;
 	    } else {
 		f = fopen(filename, "rb");
+                if (f == NULL) {
+                    fprintf(stderr, "Can't open %s\n", filename);
+                    progresult = XMLLINT_ERR_UNCLASS;
+                    return;
+                }
 	    }
-	    if (f != NULL) {
-		int ret;
-	        int res, size = 1024;
-	        char chars[1024];
-                xmlParserCtxtPtr ctxt;
 
-		/* if (repeat) size = 1024; */
-		res = fread(chars, 1, 4, f);
-		if (res > 0) {
-		    ctxt = xmlCreatePushParserCtxt(NULL, NULL,
-		                chars, res, filename);
-                    if (ctxt == NULL) {
-                        progresult = XMLLINT_ERR_MEM;
-                        if (f != stdin)
-                            fclose(f);
-                        return;
-                    }
-		    xmlCtxtUseOptions(ctxt, options);
-		    while ((res = fread(chars, 1, size, f)) > 0) {
-			xmlParseChunk(ctxt, chars, res, 0);
-		    }
-		    xmlParseChunk(ctxt, chars, 0, 1);
-		    doc = ctxt->myDoc;
-		    ret = ctxt->wellFormed;
-		    xmlFreeParserCtxt(ctxt);
-		    if ((!ret) && (!recovery)) {
-			xmlFreeDoc(doc);
-			doc = NULL;
-		    }
-	        }
+            res = fread(chars, 1, 4, f);
+            ctxt = xmlCreatePushParserCtxt(NULL, NULL,
+                        chars, res, filename);
+            if (ctxt == NULL) {
+                progresult = XMLLINT_ERR_MEM;
                 if (f != stdin)
                     fclose(f);
-	    }
+                return;
+            }
+            xmlCtxtUseOptions(ctxt, options);
+            if (maxAmpl > 0)
+                xmlCtxtSetMaxAmplification(ctxt, maxAmpl);
+            while ((res = fread(chars, 1, size, f)) > 0) {
+                xmlParseChunk(ctxt, chars, res, 0);
+            }
+            xmlParseChunk(ctxt, chars, 0, 1);
+            doc = ctxt->myDoc;
+            ret = ctxt->wellFormed;
+            xmlFreeParserCtxt(ctxt);
+            if ((!ret) && (!recovery)) {
+                xmlFreeDoc(doc);
+                doc = NULL;
+            }
+            if (f != stdin)
+                fclose(f);
 	} else
 #endif /* LIBXML_PUSH_ENABLED */
         if (testIO) {
@@ -2266,6 +2273,8 @@ static void parseAndPrintFile(char *filename, xmlParserCtxtPtr rectxt) {
                     progresult = XMLLINT_ERR_MEM;
                     return;
                 }
+                if (maxAmpl > 0)
+                    xmlCtxtSetMaxAmplification(ctxt, maxAmpl);
             } else {
                 ctxt = rectxt;
             }
@@ -2296,12 +2305,24 @@ static void parseAndPrintFile(char *filename, xmlParserCtxtPtr rectxt) {
 	        return;
 	    }
 
-	    if (rectxt == NULL)
-		doc = xmlReadMemory((char *) base, info.st_size,
-		                    filename, NULL, options);
-	    else
+	    if (rectxt == NULL) {
+                xmlParserCtxtPtr ctxt;
+
+                ctxt = xmlNewParserCtxt();
+                if (ctxt == NULL) {
+                    fprintf(stderr, "out of memory\n");
+                    progresult = XMLLINT_ERR_MEM;
+                    return;
+                }
+                if (maxAmpl > 0)
+                    xmlCtxtSetMaxAmplification(ctxt, maxAmpl);
+                doc = xmlCtxtReadMemory(ctxt, base, info.st_size,
+                                        filename, NULL, options);
+                xmlFreeParserCtxt(ctxt);
+            } else {
 		doc = xmlCtxtReadMemory(rectxt, (char *) base, info.st_size,
 			                filename, NULL, options);
+            }
 
 	    munmap((char *) base, info.st_size);
 	    close(fd);
@@ -2320,6 +2341,8 @@ static void parseAndPrintFile(char *filename, xmlParserCtxtPtr rectxt) {
 	        ctxt = rectxt;
             }
 
+            if (maxAmpl > 0)
+                xmlCtxtSetMaxAmplification(ctxt, maxAmpl);
             doc = xmlCtxtReadFile(ctxt, filename, NULL, options);
 
             if (ctxt->valid == 0)
@@ -2328,10 +2351,22 @@ static void parseAndPrintFile(char *filename, xmlParserCtxtPtr rectxt) {
                 xmlFreeParserCtxt(ctxt);
 #endif /* LIBXML_VALID_ENABLED */
 	} else {
-	    if (rectxt != NULL)
+	    if (rectxt != NULL) {
 	        doc = xmlCtxtReadFile(rectxt, filename, NULL, options);
-	    else
-		doc = xmlReadFile(filename, NULL, options);
+	    } else {
+                xmlParserCtxtPtr ctxt;
+
+                ctxt = xmlNewParserCtxt();
+                if (ctxt == NULL) {
+                    fprintf(stderr, "out of memory\n");
+                    progresult = XMLLINT_ERR_MEM;
+                    return;
+                }
+                if (maxAmpl > 0)
+                    xmlCtxtSetMaxAmplification(ctxt, maxAmpl);
+                doc = xmlCtxtReadFile(ctxt, filename, NULL, options);
+                xmlFreeParserCtxt(ctxt);
+            }
 	}
     }
 
@@ -2402,6 +2437,11 @@ static void parseAndPrintFile(char *filename, xmlParserCtxtPtr rectxt) {
 	    startTimer();
 	}
 	doc = xmlCopyDoc(doc, 1);
+        if (doc == NULL) {
+            progresult = XMLLINT_ERR_MEM;
+            xmlFreeDoc(tmp);
+            return;
+        }
 	if (timing) {
 	    endTimer("Copying");
 	}
@@ -3048,6 +3088,7 @@ static void usage(FILE *f, const char *name) {
 #ifdef LIBXML_XPATH_ENABLED
     fprintf(f, "\t--xpath expr: evaluate the XPath expression, imply --noout\n");
 #endif
+    fprintf(f, "\t--max-ampl value: set maximum amplification factor\n");
 
     fprintf(f, "\nLibxml project home page: https://gitlab.gnome.org/GNOME/libxml2\n");
 }
@@ -3071,12 +3112,31 @@ static void deregisterNode(xmlNodePtr node)
     nbregister--;
 }
 
+static unsigned long
+parseInteger(const char *ctxt, const char *str,
+             unsigned long min, unsigned long max) {
+    char *strEnd;
+    unsigned long val;
+
+    errno = 0;
+    val = strtoul(str, &strEnd, 10);
+    if (errno == EINVAL || *strEnd != 0) {
+        fprintf(stderr, "%s: invalid integer: %s\n", ctxt, str);
+        exit(XMLLINT_ERR_UNCLASS);
+    }
+    if (errno != 0 || val < min || val > max) {
+        fprintf(stderr, "%s: integer out of range: %s\n", ctxt, str);
+        exit(XMLLINT_ERR_UNCLASS);
+    }
+
+    return(val);
+}
+
 int
 main(int argc, char **argv) {
     int i, acount;
     int files = 0;
     int version = 0;
-    const char* indent;
 
     if (argc <= 1) {
 	usage(stderr, argv[0]);
@@ -3090,25 +3150,13 @@ main(int argc, char **argv) {
 
 	if ((!strcmp(argv[i], "-maxmem")) ||
 	    (!strcmp(argv[i], "--maxmem"))) {
-            char *val_end;
-            long val;
-
             i++;
             if (i >= argc) {
                 fprintf(stderr, "maxmem: missing integer value\n");
                 return(XMLLINT_ERR_UNCLASS);
             }
             errno = 0;
-            val = strtol(argv[i], &val_end, 10);
-            if (errno == EINVAL || *val_end != 0) {
-                fprintf(stderr, "maxmem: invalid integer: %s\n", argv[i]);
-                return(XMLLINT_ERR_UNCLASS);
-            }
-            if (errno != 0 || val < 0 || val > INT_MAX) {
-                fprintf(stderr, "maxmem: integer out of range: %s\n", argv[i]);
-                return(XMLLINT_ERR_UNCLASS);
-            }
-            maxmem = val;
+            maxmem = parseInteger("maxmem", argv[i], 0, INT_MAX);
         }
     }
     if (maxmem != 0)
@@ -3309,7 +3357,6 @@ main(int argc, char **argv) {
 	else if ((!strcmp(argv[i], "-debugent")) ||
 		 (!strcmp(argv[i], "--debugent"))) {
 	    debugent++;
-	    xmlParserDebugEntities = 1;
 	}
 #endif
 #ifdef LIBXML_C14N_ENABLED
@@ -3444,6 +3491,14 @@ main(int argc, char **argv) {
 	           (!strcmp(argv[i], "--oldxml10"))) {
 	    oldxml10++;
 	    options |= XML_PARSE_OLD10;
+	} else if ((!strcmp(argv[i], "-max-ampl")) ||
+	           (!strcmp(argv[i], "--max-ampl"))) {
+            i++;
+            if (i >= argc) {
+                fprintf(stderr, "max-ampl: missing integer value\n");
+                return(XMLLINT_ERR_UNCLASS);
+            }
+            maxAmpl = parseInteger("max-ampl", argv[i], 1, UINT_MAX);
 	} else {
 	    fprintf(stderr, "Unknown option %s\n", argv[i]);
 	    usage(stderr, argv[0]);
@@ -3471,19 +3526,18 @@ main(int argc, char **argv) {
 	xmlDeregisterNodeDefault(deregisterNode);
     }
 
-    indent = getenv("XMLLINT_INDENT");
-    if(indent != NULL) {
-	xmlTreeIndentString = indent;
+#ifdef LIBXML_OUTPUT_ENABLED
+    {
+        const char *indent = getenv("XMLLINT_INDENT");
+        if (indent != NULL) {
+            xmlTreeIndentString = indent;
+        }
     }
-
+#endif
 
     defaultEntityLoader = xmlGetExternalEntityLoader();
     xmlSetExternalEntityLoader(xmllintExternalEntityLoader);
 
-    if (loaddtd != 0)
-	xmlLoadExtDtdDefaultValue |= XML_DETECT_IDS;
-    if (dtdattrs)
-	xmlLoadExtDtdDefaultValue |= XML_COMPLETE_ATTRS;
     if (noent != 0)
         options |= XML_PARSE_NOENT;
     if ((noblanks != 0) || (format == 1))
@@ -3510,7 +3564,6 @@ main(int argc, char **argv) {
 	xmlSchematronParserCtxtPtr ctxt;
 
         /* forces loading the DTDs */
-        xmlLoadExtDtdDefaultValue |= 1;
 	options |= XML_PARSE_DTDLOAD;
 	if (timing) {
 	    startTimer();
@@ -3546,7 +3599,6 @@ main(int argc, char **argv) {
 	xmlRelaxNGParserCtxtPtr ctxt;
 
         /* forces loading the DTDs */
-        xmlLoadExtDtdDefaultValue |= 1;
 	options |= XML_PARSE_DTDLOAD;
 	if (timing) {
 	    startTimer();
@@ -3676,12 +3728,25 @@ main(int argc, char **argv) {
 	    continue;
 	}
 #endif
+        if ((!strcmp(argv[i], "-max-ampl")) ||
+            (!strcmp(argv[i], "--max-ampl"))) {
+	    i++;
+	    continue;
+        }
 	if ((timing) && (repeat))
 	    startTimer();
 	/* Remember file names.  "-" means stdin.  <sven@zen.org> */
 	if ((argv[i][0] != '-') || (strcmp(argv[i], "-") == 0)) {
 	    if (repeat) {
-		xmlParserCtxtPtr ctxt = NULL;
+		xmlParserCtxtPtr ctxt;
+
+                ctxt = xmlNewParserCtxt();
+                if (ctxt == NULL) {
+                    progresult = XMLLINT_ERR_MEM;
+                    goto error;
+                }
+                if (maxAmpl > 0)
+                    xmlCtxtSetMaxAmplification(ctxt, maxAmpl);
 
 		for (acount = 0;acount < repeat;acount++) {
 #ifdef LIBXML_READER_ENABLED
@@ -3692,16 +3757,14 @@ main(int argc, char **argv) {
                         if (sax) {
 			    testSAX(argv[i]);
 			} else {
-			    if (ctxt == NULL)
-				ctxt = xmlNewParserCtxt();
 			    parseAndPrintFile(argv[i], ctxt);
 			}
 #ifdef LIBXML_READER_ENABLED
 		    }
 #endif /* LIBXML_READER_ENABLED */
 		}
-		if (ctxt != NULL)
-		    xmlFreeParserCtxt(ctxt);
+
+		xmlFreeParserCtxt(ctxt);
 	    } else {
 		nbregister = 0;
 
@@ -3756,7 +3819,6 @@ main(int argc, char **argv) {
 
 error:
     xmlCleanupParser();
-    xmlMemoryDump();
 
     return(progresult);
 }

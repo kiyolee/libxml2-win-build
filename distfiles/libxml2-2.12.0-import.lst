@@ -101,6 +101,7 @@ testchar.c
 testdict.c
 testdso.c
 testlimits.c
+testparser.c
 testrecurse.c
 threads.c
 timsort.h

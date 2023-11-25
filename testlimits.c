@@ -10,9 +10,8 @@
  * daniel@veillard.com
  */
 
-#include "libxml.h"
 #include <stdio.h>
-
+#include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
 #include <time.h>
@@ -476,7 +475,7 @@ xmlParserPrintFileContextInternal(xmlParserInputPtr input ,
 }
 
 static void
-testStructuredErrorHandler(void *ctx  ATTRIBUTE_UNUSED, xmlErrorPtr err) {
+testStructuredErrorHandler(void *ctx ATTRIBUTE_UNUSED, const xmlError *err) {
     char *file = NULL;
     int line = 0;
     int code = -1;
@@ -659,9 +658,6 @@ testStructuredErrorHandler(void *ctx  ATTRIBUTE_UNUSED, xmlErrorPtr err) {
 
 static void
 initializeLibxml2(void) {
-    xmlGetWarningsDefaultValue = 0;
-    xmlPedanticParserDefault(0);
-
     xmlMemSetup(xmlMemFree, xmlMemMalloc, xmlMemRealloc, xmlMemoryStrdup);
     xmlInitParser();
     xmlSetExternalEntityLoader(testExternalEntityLoader);
@@ -1622,7 +1618,6 @@ main(int argc ATTRIBUTE_UNUSED, char **argv ATTRIBUTE_UNUSED) {
 	       nb_tests, nb_errors, nb_leaks);
     }
     xmlCleanupParser();
-    xmlMemoryDump();
 
     return(ret);
 }

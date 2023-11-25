@@ -140,6 +140,7 @@
     <ClCompile Include="..\..\xmlwriter.c" />
     <ClCompile Include="..\..\xpath.c" />
     <ClCompile Include="..\..\xpointer.c" />
+    <ClCompile Include="..\..\xzlib.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\libxml\c14n.h" />

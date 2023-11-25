@@ -5,43 +5,44 @@
     <Import Project="win-build.props" />
     <Import Project="libiconv.props" />
     <Import Project="zlib.props" />
+    <Import Project="liblzma.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\..\win32;..\..;..\..\include;$(ZLIB_INC_DIR);$(LIBICONV_INC_DIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\win32;..\..;..\..\include;$(LIBICONV_INC_DIR);$(ZLIB_INC_DIR);$(LIBLZMA_INC_DIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;LZMA_API_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;$(ZLIB_LIB_DIR)libz-static.lib;$(LIBICONV_LIB_DIR)libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;$(LIBICONV_LIB_DIR)libiconv-static.lib;$(ZLIB_LIB_DIR)libz-static.lib;$(LIBLZMA_LIB_DIR)liblzma-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\..\win32;..\..;..\..\include;$(ZLIB_INC_DIR);$(LIBICONV_INC_DIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\win32;..\..;..\..\include;$(LIBICONV_INC_DIR);$(ZLIB_INC_DIR);$(LIBLZMA_INC_DIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;LZMA_API_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;$(ZLIB_LIB_DIR)libz-static.lib;$(LIBICONV_LIB_DIR)libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;$(LIBICONV_LIB_DIR)libiconv-static.lib;$(ZLIB_LIB_DIR)libz-static.lib;$(LIBLZMA_LIB_DIR)liblzma-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\..\win32;..\..;..\..\include;$(ZLIB_INC_DIR);$(LIBICONV_INC_DIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\win32;..\..;..\..\include;$(LIBICONV_INC_DIR);$(ZLIB_INC_DIR);$(LIBLZMA_INC_DIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;LZMA_API_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;$(ZLIB_LIB_DIR)libz-static.lib;$(LIBICONV_LIB_DIR)libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;$(LIBICONV_LIB_DIR)libiconv-static.lib;$(ZLIB_LIB_DIR)libz-static.lib;$(LIBLZMA_LIB_DIR)liblzma-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\..\win32;..\..;..\..\include;$(ZLIB_INC_DIR);$(LIBICONV_INC_DIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\win32;..\..;..\..\include;$(LIBICONV_INC_DIR);$(ZLIB_INC_DIR);$(LIBLZMA_INC_DIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;LZMA_API_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;$(ZLIB_LIB_DIR)libz-static.lib;$(LIBICONV_LIB_DIR)libiconv-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;$(LIBICONV_LIB_DIR)libiconv-static.lib;$(ZLIB_LIB_DIR)libz-static.lib;$(LIBLZMA_LIB_DIR)liblzma-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup />
