@@ -8949,7 +8949,7 @@ xmlParseEndTag(xmlParserCtxtPtr ctxt) {
 static xmlHashedString
 xmlParseQNameHashed(xmlParserCtxtPtr ctxt, xmlHashedString *prefix) {
     xmlHashedString l, p;
-    int start;
+    int start, isNCName = 0;
 
     l.name = NULL;
     p.name = NULL;
@@ -8960,10 +8960,13 @@ xmlParseQNameHashed(xmlParserCtxtPtr ctxt, xmlHashedString *prefix) {
     start = CUR_PTR - BASE_PTR;
 
     l = xmlParseNCName(ctxt);
-    if ((l.name != NULL) && (CUR == ':')) {
-        NEXT;
-	p = l;
-	l = xmlParseNCName(ctxt);
+    if (l.name != NULL) {
+        isNCName = 1;
+        if (CUR == ':') {
+            NEXT;
+            p = l;
+            l = xmlParseNCName(ctxt);
+        }
     }
     if ((l.name == NULL) || (CUR == ':')) {
         xmlChar *tmp;
@@ -8972,7 +8975,7 @@ xmlParseQNameHashed(xmlParserCtxtPtr ctxt, xmlHashedString *prefix) {
         p.name = NULL;
         if (ctxt->instate == XML_PARSER_EOF)
             return(l);
-        if ((CUR != ':') && (CUR_PTR <= BASE_PTR + start))
+        if ((isNCName == 0) && (CUR != ':'))
             return(l);
         tmp = xmlParseNmtoken(ctxt);
         if (tmp != NULL)
@@ -13413,6 +13416,8 @@ xmlParseBalancedChunkMemoryRecover(xmlDocPtr doc, xmlSAXHandlerPtr sax,
 	ctxt->str_xmlns = xmlDictLookup(ctxt->dict, BAD_CAST "xmlns", 5);
 	ctxt->str_xml_ns = xmlDictLookup(ctxt->dict, XML_XML_NAMESPACE, 36);
 	ctxt->dictNames = 1;
+        newDoc->dict = ctxt->dict;
+        xmlDictReference(newDoc->dict);
     } else {
 	xmlCtxtUseOptionsInternal(ctxt, XML_PARSE_NODICT, NULL);
     }
@@ -13438,7 +13443,6 @@ xmlParseBalancedChunkMemoryRecover(xmlDocPtr doc, xmlSAXHandlerPtr sax,
 	ctxt->myDoc = newDoc;
     } else {
 	ctxt->myDoc = newDoc;
-	newDoc->children->doc = doc;
 	/* Ensure that doc has XML spec namespace */
 	xmlSearchNsByHref(doc, (xmlNodePtr)doc, XML_XML_NAMESPACE);
 	newDoc->oldNs = doc->oldNs;
