@@ -2,7 +2,7 @@ fec7ecfe714722b2bb0aaff7d200c701  Copyright
 721403e0fda4eada7d113aed94fae756  HTMLparser.c
 ac5d42c343d2093d2a031f59036c5f99  HTMLtree.c
 dd63184811cb2ff705c3e466364d3773  INSTALL
-30169376fe62b0f94a94e29017dd4ecc  NEWS
+efcfedcafac61545fff5bb73baa7ea40  NEWS
 d52aad5f8ace0ed3e5f9b126d72473e1  README.libxml2.md
 7283878f36a935a3c00df077cf45af54  SAX.c
 15289caf4cf19277a510d22c24238a73  SAX2.c
@@ -86,7 +86,7 @@ c2b5c54ee40fd7bfba8eb6b9e90d6dbd  libxml.h
 67985a9e0fc42eebc29d12b884baa00a  list.c
 a9e486124ef2c3a00ecb44001d774484  nanoftp.c
 a2c34ca6d295906ebc9b56d8e056bf7a  nanohttp.c
-60bd4103a522e93fd7251f692e95a797  parser.c
+31b470515fb0c82d2b0452c4fc12afd6  parser.c
 6aceabaf83db5fda83b670ebfd9785dd  parserInternals.c
 8809dafc22e8463d81a392ac8a853a59  pattern.c
 15a40570e75a1cf9f9da7350f9557b86  relaxng.c
@@ -125,7 +125,7 @@ ec9a5e17f4cb2e520e10f5a2d6fc71fc  xmlIO.c
 77a1978e92525ab506d4f65b895d00cc  xmllint.c
 47188d0524f25fdb396703aa6d5e1fd6  xmlmemory.c
 096b464ed7bd0decd5a9a6d209f0fabd  xmlmodule.c
-af42522282ec942edfb966ccac58354b  xmlreader.c
+4714fb1778309745baf394f1e4510bc7  xmlreader.c
 976c32247397c82331e8621977613ea4  xmlregexp.c
 35f1a33750476ab7e7b92c889a23afcf  xmlsave.c
 c6a6f950f16ba8d1e15ae0d384b259ca  xmlschemas.c
