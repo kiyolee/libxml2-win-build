@@ -2,7 +2,7 @@ fec7ecfe714722b2bb0aaff7d200c701  Copyright
 7f7555dd7a030f5150fd0c3c32f7462a  HTMLparser.c
 ac5d42c343d2093d2a031f59036c5f99  HTMLtree.c
 dd63184811cb2ff705c3e466364d3773  INSTALL
-ec376edd296998178d22b446d0c05cc1  NEWS
+309120dd47209db87b1f151a2be8a281  NEWS
 d52aad5f8ace0ed3e5f9b126d72473e1  README.libxml2.md
 7283878f36a935a3c00df077cf45af54  SAX.c
 09a9556a3b8677675bd45ba603376aa0  SAX2.c
@@ -122,12 +122,12 @@ fd3d55b1d9817a9ef205f35b1d60f527  valid.c
 0a034450d155e35ec8ba99ee2005b695  xlink.c
 ec9a5e17f4cb2e520e10f5a2d6fc71fc  xmlIO.c
 28bb81f9966d3ec48c510dd56fa10b94  xmlcatalog.c
-b4ee35347380db9446ddfda0c4192ad6  xmllint.c
+19ebfd8c205fae4022bb30d387831a36  xmllint.c
 47188d0524f25fdb396703aa6d5e1fd6  xmlmemory.c
 096b464ed7bd0decd5a9a6d209f0fabd  xmlmodule.c
 6e71ac671a381c09cbc398e47e5ba33a  xmlreader.c
 976c32247397c82331e8621977613ea4  xmlregexp.c
-35f1a33750476ab7e7b92c889a23afcf  xmlsave.c
+419d628dc26e76442a30f4797c770a80  xmlsave.c
 c6a6f950f16ba8d1e15ae0d384b259ca  xmlschemas.c
 906205b67f1d974598edee0322e3c234  xmlschemastypes.c
 7b87ec18a05dfab6a30e1c3667d7edee  xmlstring.c
