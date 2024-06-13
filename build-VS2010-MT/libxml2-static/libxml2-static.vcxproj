@@ -205,9 +205,6 @@
     <ClInclude Include="..\..\include\wsockcompat.h" />
     <ClInclude Include="..\..\libxml.h" />
     <ClInclude Include="..\..\timsort.h" />
-    <ClInclude Include="..\..\trio.h" />
-    <ClInclude Include="..\..\triodef.h" />
-    <ClInclude Include="..\..\trionan.h" />
     <ClInclude Include="..\..\win32\config.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

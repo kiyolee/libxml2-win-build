@@ -106,14 +106,6 @@ testrecurse.c
 threads.c
 timsort.h
 tree.c
-trio.c
-trio.h
-triodef.h
-trionan.c
-trionan.h
-triop.h
-triostr.c
-triostr.h
 uri.c
 valid.c
 win32/config.h

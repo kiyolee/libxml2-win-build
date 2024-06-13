@@ -505,18 +505,6 @@
 				RelativePath="..\..\timsort.h"
 				>
 			</File>
-			<File
-				RelativePath="..\..\trio.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\triodef.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\trionan.h"
-				>
-			</File>
 			<Filter
 				Name="include"
 				>
