@@ -2,7 +2,7 @@ f437ed9058e8e5135e47c01e973376ba  Copyright
 799d00dfaca59a88a1ddcb7e564e6476  HTMLparser.c
 24211653eb3b5d6752f5eb91d6ecc3ef  HTMLtree.c
 dd63184811cb2ff705c3e466364d3773  INSTALL
-fe33b193822d5fb2d92b436f2547d765  NEWS
+e9216f2f1d1f18c7e15bf6bf86e20c80  NEWS
 5f32c16a4eccf442197b65fa65f3c7b8  README.libxml2.md
 7283878f36a935a3c00df077cf45af54  SAX.c
 f2edb7da1ddb9093de9841519b68f576  SAX2.c
@@ -33,7 +33,7 @@ bc51344e21f8d3b7f0fc93cc9d554243  include/libxml/globals.h
 90371c7017be1221a0c4d20089ade92a  include/libxml/list.h
 d5c907a6d7d205e286168e007f32504c  include/libxml/nanoftp.h
 95b1e4eadd008ebd16424f0f47213062  include/libxml/nanohttp.h
-731e8b4519b21e29136613b0f6c5d5b9  include/libxml/parser.h
+d502bff9a863243db03445264fe5dea0  include/libxml/parser.h
 b0d1746c566f0a4e1c368d6b1f734564  include/libxml/parserInternals.h
 dfa0e955ce14744df32c8a050c5ee84a  include/libxml/pattern.h
 d752e41ee40c2b028d0adb34ffc38810  include/libxml/relaxng.h
@@ -86,7 +86,7 @@ cdbcf52ea11b6ee99454e3b9a3adeaac  legacy.c
 62f33a8621e3442770fd15a540a7eba0  list.c
 040942573dbd47e7188991ab3c9c9a99  nanoftp.c
 4c676ca8672af9c242eab69fb9e2056f  nanohttp.c
-53c1f20bdbb724031dadb506e6683ff2  parser.c
+c2cd66a9e3acf9e891a9454f5a7bc147  parser.c
 7a70d4383a870b265ca14cd498b37c85  parserInternals.c
 fc88d174a7b70de62c609c32ce3f55f8  pattern.c
 06b7f056c759cff032979e0075c5b318  relaxng.c
@@ -101,7 +101,7 @@ c48cacc169fbe69e961ceafbfb92ee71  testModule.c
 8efef0b6535d6c069678e9f6750d3742  testdict.c
 6a3e7cbf9864c04639a1a8ac0c388ea2  testdso.c
 e7f8098f4a9e147624c3cf7d652a70c0  testlimits.c
-6010c3c335e3369385618d022aade84a  testparser.c
+b6224e455a78abefae0a5a1d128ed789  testparser.c
 71ea68a83739869caba574c1725fba96  testrecurse.c
 d746403de87ca28dbb43a4a76e63a3d6  threads.c
 1bcb15667ab695cdd2cc8d5b1bc05169  timsort.h
@@ -110,9 +110,9 @@ f8bea8ace4ec3a2d89543da6b91ab630  uri.c
 46d56681c3541150ee29b33f77e76bb8  valid.c
 8ab2045fb3bb5553449a93c85ebbb58a  win32/config.h
 9ca0965eeabe09b4f8d9a1c6c5d8c3b0  win32/libxml2.rc
-a9b815153157403c75b2c9abf687e97e  xinclude.c
+98e142c0d1c661f7604934d31f6cc0ec  xinclude.c
 0a034450d155e35ec8ba99ee2005b695  xlink.c
-6fea46801cfbcfc142146f3bbf05a90b  xmlIO.c
+c38f958da8d204477b58955c69c206a2  xmlIO.c
 28bb81f9966d3ec48c510dd56fa10b94  xmlcatalog.c
 7eeb0736114d53f08e4be4d611e579dd  xmllint.c
 9a191c58eb3f035c795898caea8e689b  xmlmemory.c

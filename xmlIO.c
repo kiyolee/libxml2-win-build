@@ -794,7 +794,7 @@ xmlFileRead(void * context, char * buffer, int len) {
     if ((bytes < (size_t) len) && (ferror(file)))
         return(-xmlIOErr(0, "fread()"));
 
-    return(len);
+    return(bytes);
 }
 
 #ifdef LIBXML_OUTPUT_ENABLED
@@ -2922,10 +2922,7 @@ xmlParserGetDirectory(const char *filename) {
 	else *cur = 0;
 	ret = xmlMemStrdup(dir);
     } else {
-        if (getcwd(dir, 1024) != NULL) {
-	    dir[1023] = 0;
-	    ret = xmlMemStrdup(dir);
-	}
+        ret = xmlMemStrdup(".");
     }
     return(ret);
 #undef IS_XMLPGD_SEP
