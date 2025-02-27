@@ -98,6 +98,9 @@
   #define STDIN_FILENO 0
 #endif
 
+/* Internal parser option */
+#define XML_PARSE_UNZIP     (1 << 24)
+
 typedef enum {
     XMLLINT_RETURN_OK = 0,	    /* No error */
     XMLLINT_ERR_UNCLASS = 1,	    /* Unclassified */
@@ -1651,7 +1654,8 @@ testSAX(const char *filename) {
             xmlCtxtSetMaxAmplification(ctxt, maxAmpl);
 
         if (strcmp(filename, "-") == 0)
-            xmlCtxtReadFd(ctxt, STDIN_FILENO, "-", NULL, options);
+            xmlCtxtReadFd(ctxt, STDIN_FILENO, "-", NULL,
+                          options | XML_PARSE_UNZIP);
         else
             xmlCtxtReadFile(ctxt, filename, NULL, options);
 
@@ -2336,7 +2340,8 @@ parseFile(const char *filename, xmlParserCtxtPtr rectxt) {
 #endif
         } else {
             if (strcmp(filename, "-") == 0)
-                doc = xmlCtxtReadFd(ctxt, STDIN_FILENO, "-", NULL, options);
+                doc = xmlCtxtReadFd(ctxt, STDIN_FILENO, "-", NULL,
+                                    options | XML_PARSE_UNZIP);
             else
                 doc = xmlCtxtReadFile(ctxt, filename, NULL, options);
         }

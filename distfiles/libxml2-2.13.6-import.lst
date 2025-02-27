@@ -1,7 +1,6 @@
 Copyright
 HTMLparser.c
 HTMLtree.c
-INSTALL
 NEWS
 README.libxml2.md
 SAX.c
