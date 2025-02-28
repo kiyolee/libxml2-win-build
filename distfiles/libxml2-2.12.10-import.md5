@@ -1,8 +1,7 @@
 fec7ecfe714722b2bb0aaff7d200c701  Copyright
 7f7555dd7a030f5150fd0c3c32f7462a  HTMLparser.c
 ac5d42c343d2093d2a031f59036c5f99  HTMLtree.c
-dd63184811cb2ff705c3e466364d3773  INSTALL
-bf65af783672f87d344a98c41d010184  NEWS
+7d9dfeeafb9c62facaf574360f50fa15  NEWS
 d52aad5f8ace0ed3e5f9b126d72473e1  README.libxml2.md
 7283878f36a935a3c00df077cf45af54  SAX.c
 09a9556a3b8677675bd45ba603376aa0  SAX2.c
@@ -33,7 +32,7 @@ bc51344e21f8d3b7f0fc93cc9d554243  include/libxml/globals.h
 6c03428a747fbfab599d4e86dd17d6b1  include/libxml/list.h
 d5c907a6d7d205e286168e007f32504c  include/libxml/nanoftp.h
 3f166ef07a961ee21d3561682d859edc  include/libxml/nanohttp.h
-715cf856fa05e7633b1254edfa0a45f4  include/libxml/parser.h
+e2705687739db94287fa4ac399631f43  include/libxml/parser.h
 36c2360e8bdaac08bfccba24e461d07f  include/libxml/parserInternals.h
 f1afd2d52bf66fbf45f02dc35c72c3eb  include/libxml/pattern.h
 d752e41ee40c2b028d0adb34ffc38810  include/libxml/relaxng.h
@@ -82,13 +81,13 @@ a14a170c9fc412f09f0fb980b30f18be  include/private/xpath.h
 ebdf628f8a0505f16f2e545895e3e7d1  include/private/xzlib.h
 e857d2ed47c0848d6f469ebc16ef31f1  include/wsockcompat.h
 fd5acf7865455100e3a497f9d4d1d58c  legacy.c
-c2b5c54ee40fd7bfba8eb6b9e90d6dbd  libxml.h
+2d74f74ce783456f8f9a0971be0ab623  libxml.h
 67985a9e0fc42eebc29d12b884baa00a  list.c
 a9e486124ef2c3a00ecb44001d774484  nanoftp.c
 a2c34ca6d295906ebc9b56d8e056bf7a  nanohttp.c
-ee9f8b57c3ed99928380467f80d7df11  parser.c
+63a87ccdfb429d4848d39a81a1844183  parser.c
 5d98a417da5fd6a7f614b6a877c246a9  parserInternals.c
-8809dafc22e8463d81a392ac8a853a59  pattern.c
+5a607976bc8428265a9cb1b170640f58  pattern.c
 15a40570e75a1cf9f9da7350f9557b86  relaxng.c
 b66e180243852be9fa9f97b0722679ba  runsuite.c
 aec7e53688c694f559010cb2a46f30be  runtest.c
@@ -98,7 +97,7 @@ c48cacc169fbe69e961ceafbfb92ee71  testModule.c
 673cbe4047f34b7d954fd597d46b8716  testThreads.c
 e85d38ab99ab20ed6649989919e52fbd  testapi.c
 d665963cfccaa91533d3dfb9f69da42a  testchar.c
-2792f948169570feeb744ddf0cce5025  testdict.c
+152232c8e136575c261229ccb3393c09  testdict.c
 6a3e7cbf9864c04639a1a8ac0c388ea2  testdso.c
 e84fe8d1a9d8ea089bf9ea8544a6ea1b  testlimits.c
 c3b4626e621b6abe586944ec0e79351e  testparser.c
@@ -115,7 +114,7 @@ e79fa3e246145ff28ae6ee96c797b78c  triop.h
 ae2f0b85a98ac525c8a215e509ac63b1  triostr.c
 b93afcad9107d48ce7e66b84db7159c7  triostr.h
 eac8b302c12669b0ec1b15afd912dcdf  uri.c
-fd3d55b1d9817a9ef205f35b1d60f527  valid.c
+789d95b79b809c04defa774242c86c30  valid.c
 8ab2045fb3bb5553449a93c85ebbb58a  win32/config.h
 9ca0965eeabe09b4f8d9a1c6c5d8c3b0  win32/libxml2.rc
 27b6a7946ac148c1f96755bf442ef0f4  xinclude.c
@@ -128,11 +127,11 @@ ec9a5e17f4cb2e520e10f5a2d6fc71fc  xmlIO.c
 6e71ac671a381c09cbc398e47e5ba33a  xmlreader.c
 976c32247397c82331e8621977613ea4  xmlregexp.c
 419d628dc26e76442a30f4797c770a80  xmlsave.c
-c6a6f950f16ba8d1e15ae0d384b259ca  xmlschemas.c
+8c50e601e66f0af08e9a1aa93341f38b  xmlschemas.c
 906205b67f1d974598edee0322e3c234  xmlschemastypes.c
 7b87ec18a05dfab6a30e1c3667d7edee  xmlstring.c
 c9097be7e143f99684f19d937a775144  xmlunicode.c
 110e6d33af683f1b6b04bb53bfe6bb27  xmlwriter.c
-4811ad2391b3697581d9045a9ad0fcfb  xpath.c
+1284b0d52e212265342686e7a14731a4  xpath.c
 2f6ca95b7ee6583b611f2f2b7e566579  xpointer.c
 4f1552a87445e82f1c918eabd97479f1  xzlib.c
