@@ -1,7 +1,7 @@
 f437ed9058e8e5135e47c01e973376ba  Copyright
 799d00dfaca59a88a1ddcb7e564e6476  HTMLparser.c
 24211653eb3b5d6752f5eb91d6ecc3ef  HTMLtree.c
-0234cf7d140df9528991518a30b99919  NEWS
+9880a26ce468ad634f7f23814d5f1df1  NEWS
 5f32c16a4eccf442197b65fa65f3c7b8  README.libxml2.md
 7283878f36a935a3c00df077cf45af54  SAX.c
 7e0da22934c7f299c6e6722eadb3d307  SAX2.c
@@ -85,7 +85,7 @@ cdbcf52ea11b6ee99454e3b9a3adeaac  legacy.c
 62f33a8621e3442770fd15a540a7eba0  list.c
 040942573dbd47e7188991ab3c9c9a99  nanoftp.c
 4c676ca8672af9c242eab69fb9e2056f  nanohttp.c
-86b40a34e0ab60bd6c8c6e0399b34c72  parser.c
+b639799b2518f5a57753a1482c1136c3  parser.c
 3a1413b1aae02c332eff601272f94135  parserInternals.c
 c81d77fe634e4b5aa31a6b4cabe1f1cb  pattern.c
 06b7f056c759cff032979e0075c5b318  relaxng.c
@@ -104,14 +104,14 @@ e7f8098f4a9e147624c3cf7d652a70c0  testlimits.c
 71ea68a83739869caba574c1725fba96  testrecurse.c
 d746403de87ca28dbb43a4a76e63a3d6  threads.c
 1bcb15667ab695cdd2cc8d5b1bc05169  timsort.h
-367489e9296d884df957a0c7cb298589  tree.c
+619faa8a427dcf247ed31eb8fa45bce3  tree.c
 284aa6bc19c3179e7ee8f8f9dd04ec2c  uri.c
 675e87daa4af0987967d81f9e73dafec  valid.c
 8ab2045fb3bb5553449a93c85ebbb58a  win32/config.h
 9ca0965eeabe09b4f8d9a1c6c5d8c3b0  win32/libxml2.rc
 98e142c0d1c661f7604934d31f6cc0ec  xinclude.c
 0a034450d155e35ec8ba99ee2005b695  xlink.c
-97e1de83f5443cd8613137c871387d88  xmlIO.c
+831983f1c16241c3a77fc45a4e1a7063  xmlIO.c
 7a41f0136e0179fafba0d6e9a4514d73  xmlcatalog.c
 e7fcdad27b47b206b927d41b3cd455b4  xmllint.c
 9a191c58eb3f035c795898caea8e689b  xmlmemory.c
