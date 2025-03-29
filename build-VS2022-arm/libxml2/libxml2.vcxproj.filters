@@ -126,13 +126,7 @@
     <ClCompile Include="..\..\HTMLtree.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\legacy.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\list.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\nanoftp.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\nanohttp.c">
@@ -148,9 +142,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\relaxng.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\SAX.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\SAX2.c">

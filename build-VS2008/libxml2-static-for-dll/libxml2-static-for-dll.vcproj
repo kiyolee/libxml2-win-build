@@ -340,15 +340,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\legacy.c"
-				>
-			</File>
-			<File
 				RelativePath="..\..\list.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\nanoftp.c"
 				>
 			</File>
 			<File
@@ -369,10 +361,6 @@
 			</File>
 			<File
 				RelativePath="..\..\relaxng.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\SAX.c"
 				>
 			</File>
 			<File

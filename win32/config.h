@@ -1,12 +1,6 @@
 #ifndef __LIBXML_WIN32_CONFIG__
 #define __LIBXML_WIN32_CONFIG__
 
-#define HAVE_SYS_STAT_H
-#define HAVE_STAT
-#define HAVE_FCNTL_H
-#define HAVE_IO_H
-#define HAVE_DIRECT_H
-
 #if defined(__MINGW32__) || (defined(_MSC_VER) && _MSC_VER >= 1600)
   #define HAVE_STDINT_H
 #endif
@@ -26,6 +20,12 @@
   #define read _read
   #define write _write
   #define getcwd _getcwd
+#endif
+
+#ifdef _WIN32
+#define XML_SYSCONFDIR "C:/etc"
+#else
+#define XML_SYSCONFDIR "/etc"
 #endif
 
 #endif /* __LIBXML_WIN32_CONFIG__ */

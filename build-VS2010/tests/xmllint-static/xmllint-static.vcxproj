@@ -93,6 +93,8 @@
     <Link />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\lintmain.c" />
+    <ClCompile Include="..\..\..\shell.c" />
     <ClCompile Include="..\..\..\xmllint.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
