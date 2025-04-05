@@ -522,6 +522,16 @@ xmlSchemaCleanupTypesInternal(void) {
     /* Note that the xmlSchemaType*Def pointers aren't set to NULL. */
 }
 
+#ifdef _MSC_VER
+#pragma warning(push)
+#if defined(NAN) && defined(INFINITY)
+#pragma warning(disable: 4056) // overflow in floating-point constant arithmetic
+#pragma warning(disable: 4756) // overflow in constant arithmetic
+#else
+#pragma warning(disable: 4723) // potential divide by 0
+#endif
+#endif
+
 /*
  * xmlSchemaInitTypes:
  *
@@ -545,16 +555,9 @@ xmlSchemaInitTypes(void)
     xmlSchemaPINF = INFINITY;
     xmlSchemaNINF = -INFINITY;
 #else
-#ifdef _MSC_VER
-#pragma warning(push)
-#pragma warning(disable: 4723) // potential divide by 0
-#endif
     xmlSchemaNAN = 0.0 / zero;
     xmlSchemaPINF = 1.0 / zero;
     xmlSchemaNINF = -xmlSchemaPINF;
-#ifdef _MSC_VER
-#pragma warning(pop)
-#endif
 #endif
 
     xmlSchemaTypesBank = xmlHashCreate(40);
@@ -877,6 +880,10 @@ error:
     xmlSchemaCleanupTypesInternal();
     return (-1);
 }
+
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
 /**
  * xmlSchemaCleanupTypes:
