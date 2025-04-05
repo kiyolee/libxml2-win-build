@@ -1,10 +1,10 @@
 5873615e8a9ecbf5c8857c4312ee05d6  Copyright
 99c953e6877c283c0f407c46da99c06d  HTMLparser.c
 b6af69c727b8f394fa0131e85db4716a  HTMLtree.c
-f414aa92fd621fb39534a954e87a9afa  NEWS
+44290b10c7ee9e205b94f3c1df0d8d6c  NEWS
 826516c7a30d76598dca45cc14bce41a  README.libxml2.md
 bfb3abb8bd95e33844e48cc5ccecc7ab  SAX2.c
-2e21b46a0183d8425914d4eeb9d73fa8  VERSION
+15d86deed4a1ab175ac6ec88d2b8923a  VERSION
 0bbf040d005dc21c6c18801bb50c9677  buf.c
 8dd775089733bafb67ab4381a3b0d678  c14n.c
 e7a49d2c72750c90a9d024951a717414  catalog.c
@@ -89,7 +89,7 @@ e9abcc62adf1d6d1928b3ab09fcbd219  libxml.h
 91becf3bf916098d90a6b8dd32f4ce26  lintmain.c
 43ff7214436ef334d4ac37cc05391890  list.c
 3b672d1cebfb584afd6e698fd402944e  nanohttp.c
-b7b8cd44c9db11bef256450759a36182  parser.c
+e931c9a7176781039577cf1819cad79c  parser.c
 5d1de4bc1d03b4f8c90b1cb2188c4074  parserInternals.c
 2e2f84d12f5b5bf7dbeb82e757950a80  pattern.c
 6f2afc821223df750e66988d191b3814  relaxng.c
@@ -104,7 +104,7 @@ c83897a4ef0aa1cbb253f3aec705e57e  runxmlconf.c
 152232c8e136575c261229ccb3393c09  testdict.c
 6a3e7cbf9864c04639a1a8ac0c388ea2  testdso.c
 0d55ba9082640c786726b036ddba4b4a  testlimits.c
-f1f7033c2a3b2a99b99a185dbb999eac  testparser.c
+2b62aad1bee3ed51b3a27ec676ff1f14  testparser.c
 e51f257be1b98c5a4eeb36880ac33612  testrecurse.c
 bd32c7d1228161f2238acd5dcbc61f48  threads.c
 97968cacb07d5faec9b175a0d140f913  timsort.h
