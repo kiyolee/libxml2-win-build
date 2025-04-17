@@ -1,10 +1,10 @@
 5873615e8a9ecbf5c8857c4312ee05d6  Copyright
 99c953e6877c283c0f407c46da99c06d  HTMLparser.c
 b6af69c727b8f394fa0131e85db4716a  HTMLtree.c
-44290b10c7ee9e205b94f3c1df0d8d6c  NEWS
+b6267ecb8446655085d104dec1fdec7b  NEWS
 826516c7a30d76598dca45cc14bce41a  README.libxml2.md
 bfb3abb8bd95e33844e48cc5ccecc7ab  SAX2.c
-15d86deed4a1ab175ac6ec88d2b8923a  VERSION
+35d7f12f3f1d587e02852833d2e49263  VERSION
 0bbf040d005dc21c6c18801bb50c9677  buf.c
 8dd775089733bafb67ab4381a3b0d678  c14n.c
 e7a49d2c72750c90a9d024951a717414  catalog.c
@@ -14,7 +14,7 @@ e083ef976478258a08a62e4f00791f8e  dict.c
 d8fe10692cd89df2041db5b582e60905  encoding.c
 b478f9b23e2c37a1198ef38727555c26  entities.c
 3fb5998214ac2f8c1d7b48edd03f5b1e  error.c
-14bed921f11929e2a4e90ad04dc98984  globals.c
+8830e531ad96d273576be5e1ab590223  globals.c
 7f27751b7d2e4eb2be8fc2814b55092c  hash.c
 06131ee0b2510dd09ff84e08e5c90721  html5ent.inc
 5fb4e30fb993c3c352b7631a4830f11b  include/libxml/HTMLparser.h
@@ -47,7 +47,7 @@ cb66fe1651e4cdb9d7be0f9bedb5946d  include/libxml/valid.h
 5f5515f392eb784e32cbbb0625d4e850  include/libxml/xlink.h
 e4d51583ec205b5db552dbd2dc64f464  include/libxml/xmlIO.h
 e298a2a7623ba7d34f7cc15d177c53a7  include/libxml/xmlautomata.h
-6030d789ab38da98381c3ba1bc77f426  include/libxml/xmlerror.h
+02ac6b7e281ddd7348a452883a1f6393  include/libxml/xmlerror.h
 26d97d177931da50c14fb9a2a3aeb089  include/libxml/xmlexports.h
 b20325261409bd411e72faae05f94396  include/libxml/xmlmemory.h
 42daa004760de761b516979aca3fefcb  include/libxml/xmlmodule.h
@@ -123,7 +123,7 @@ b438c22cebc47ac8844e8a6ce7496152  xmlmodule.c
 de1da5678d5f8d51302262a3240a4c61  xmlreader.c
 8d569adc59ca3c0b3478f02b09d35a31  xmlregexp.c
 1b5fb7fe5f1fedf0e5ee5434a85c5fa0  xmlsave.c
-b184e6f918eb71b92607769cba73b42a  xmlschemas.c
+062620d60d0d5e5b7b004622ff5449a9  xmlschemas.c
 80ef1acabf48e79a4829884b78da8481  xmlschemastypes.c
 94e990955eb6a68a37d6cb6815ad7d27  xmlstring.c
 6bb5de44558e539f98325ca8f122d6ef  xmlunicode.c
