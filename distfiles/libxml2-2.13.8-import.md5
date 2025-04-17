@@ -1,7 +1,7 @@
 f437ed9058e8e5135e47c01e973376ba  Copyright
 799d00dfaca59a88a1ddcb7e564e6476  HTMLparser.c
 24211653eb3b5d6752f5eb91d6ecc3ef  HTMLtree.c
-9880a26ce468ad634f7f23814d5f1df1  NEWS
+dbe7cbf28237b1e0c15eba40d61d2df0  NEWS
 5f32c16a4eccf442197b65fa65f3c7b8  README.libxml2.md
 7283878f36a935a3c00df077cf45af54  SAX.c
 7e0da22934c7f299c6e6722eadb3d307  SAX2.c
@@ -119,7 +119,7 @@ e7fcdad27b47b206b927d41b3cd455b4  xmllint.c
 df1e117c504fcd22aa1baf5ef024778d  xmlreader.c
 fda6796d6766ba055664f2993eca5ed7  xmlregexp.c
 d877f026dd7130ed114ef4715be479bf  xmlsave.c
-e55b101d2f83766fc799ab95d491eb1a  xmlschemas.c
+f164537ce1b2f0714bae98de2bd6659a  xmlschemas.c
 991c4949ca7a25c99a7beff8e7516915  xmlschemastypes.c
 b7ff570f5e58afc8fc939282e6707108  xmlstring.c
 c9097be7e143f99684f19d937a775144  xmlunicode.c
