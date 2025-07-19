@@ -4031,6 +4031,9 @@ schematronTest(const char *filename,
     size_t i;
     char count = 0;
 
+    /* Redirect XPath errors */
+    xmlSetStructuredErrorFunc(NULL, testStructuredErrorHandler);
+
     pctxt = xmlSchematronNewParserCtxt(filename);
     schematron = xmlSchematronParse(pctxt);
     xmlSchematronFreeParserCtxt(pctxt);
@@ -4044,8 +4047,8 @@ schematronTest(const char *filename,
      */
     len = strlen(base);
     if ((len > 499) || (len < 5)) {
-        xmlSchematronFree(schematron);
-	return(-1);
+        ret = -1;
+        goto done;
     }
     len -= 4; /* remove trailing .sct */
     memcpy(prefix, base, len);
@@ -4085,8 +4088,10 @@ schematronTest(const char *filename,
         }
     }
     globfree(&globbuf);
-    xmlSchematronFree(schematron);
 
+done:
+    xmlSchematronFree(schematron);
+    xmlSetStructuredErrorFunc(NULL, NULL);
     return(ret);
 }
 #endif /* LIBXML_SCHEMATRON_ENABLED */
