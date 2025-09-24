@@ -2,7 +2,7 @@
 
 libxml2 Windows build with Visual Studio.
 
-This version is libxml2-2.14.5.
+This version is libxml2-2.14.6.
 
 Note that LZMA support is only available for VS2013 or later.
 
