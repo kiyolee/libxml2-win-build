@@ -21,7 +21,7 @@ BEGIN
       VALUE "FileDescription",	"libxml2 library\0"
       VALUE "FileVersion",	LIBXML_DOTTED_VERSION "\0"
       VALUE "InternalName",	"libxml2.dll\0"
-      VALUE "LegalCopyright",	"Copyright (C) Daniel Veillard\0"
+      VALUE "LegalCopyright",	"Copyright (C) The Libxml2 Contributors\0"
       VALUE "LegalTrademarks",	"\0"
       VALUE "OriginalFilename",	"libxml2.dll\0"
       VALUE "ProductName",	"libxml2\0"
