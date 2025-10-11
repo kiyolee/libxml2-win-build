@@ -9,6 +9,11 @@ buf.c
 c14n.c
 catalog.c
 chvalid.c
+codegen/charset.inc
+codegen/escape.inc
+codegen/html5ent.inc
+codegen/ranges.inc
+codegen/unicode.inc
 debugXML.c
 dict.c
 encoding.c
@@ -16,7 +21,6 @@ entities.c
 error.c
 globals.c
 hash.c
-html5ent.inc
 include/libxml/HTMLparser.h
 include/libxml/HTMLtree.h
 include/libxml/SAX.h
@@ -79,12 +83,8 @@ include/private/save.h
 include/private/string.h
 include/private/threads.h
 include/private/tree.h
-include/private/unicode.h
 include/private/xinclude.h
 include/private/xpath.h
-include/private/xzlib.h
-include/wsockcompat.h
-iso8859x.inc
 libxml.h
 lintmain.c
 list.c
@@ -111,7 +111,6 @@ timsort.h
 tree.c
 uri.c
 valid.c
-win32/config.h
 win32/libxml2.rc
 xinclude.c
 xlink.c
@@ -126,8 +125,6 @@ xmlsave.c
 xmlschemas.c
 xmlschemastypes.c
 xmlstring.c
-xmlunicode.c
 xmlwriter.c
 xpath.c
 xpointer.c
-xzlib.c

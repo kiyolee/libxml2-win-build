@@ -75,9 +75,6 @@
     <ClCompile Include="..\..\xmlstring.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\xmlunicode.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\xmlwriter.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -157,9 +154,6 @@
     </ClInclude>
     <ClInclude Include="..\..\timsort.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\wsockcompat.h">
-      <Filter>Header Files\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\libxml\xmlIO.h">
       <Filter>Header Files\include\libxml</Filter>
@@ -327,9 +321,6 @@
       <Filter>Header Files\include\private</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\private\xpath.h">
-      <Filter>Header Files\include\private</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\private\xzlib.h">
       <Filter>Header Files\include\private</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\private\buf.h">

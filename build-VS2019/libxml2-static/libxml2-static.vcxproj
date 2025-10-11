@@ -133,11 +133,9 @@
     <ClCompile Include="..\..\xmlschemas.c" />
     <ClCompile Include="..\..\xmlschemastypes.c" />
     <ClCompile Include="..\..\xmlstring.c" />
-    <ClCompile Include="..\..\xmlunicode.c" />
     <ClCompile Include="..\..\xmlwriter.c" />
     <ClCompile Include="..\..\xpath.c" />
     <ClCompile Include="..\..\xpointer.c" />
-    <ClCompile Include="..\..\xzlib.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\libxml\c14n.h" />
@@ -203,8 +201,6 @@
     <ClInclude Include="..\..\include\private\tree.h" />
     <ClInclude Include="..\..\include\private\xinclude.h" />
     <ClInclude Include="..\..\include\private\xpath.h" />
-    <ClInclude Include="..\..\include\private\xzlib.h" />
-    <ClInclude Include="..\..\include\wsockcompat.h" />
     <ClInclude Include="..\..\libxml.h" />
     <ClInclude Include="..\..\timsort.h" />
     <ClInclude Include="..\..\win32\config.h" />

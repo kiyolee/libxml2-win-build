@@ -464,10 +464,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\xmlunicode.c"
-				>
-			</File>
-			<File
 				RelativePath="..\..\xmlwriter.c"
 				>
 			</File>
@@ -496,10 +492,6 @@
 			<Filter
 				Name="include"
 				>
-				<File
-					RelativePath="..\..\include\wsockcompat.h"
-					>
-				</File>
 				<Filter
 					Name="libxml"
 					>
@@ -757,10 +749,6 @@
 					</File>
 					<File
 						RelativePath="..\..\include\private\xpath.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\include\private\xzlib.h"
 						>
 					</File>
 				</Filter>
