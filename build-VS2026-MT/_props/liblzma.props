@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <LIBLZMA_INC_DIR>..\..\..\xz-win-build\src\liblzma\api</LIBLZMA_INC_DIR>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)'=='Win32'" Label="UserMacros">
+    <LIBLZMA_LIB_DIR>..\..\..\xz-win-build\$(BUILD_VSENV)\$(Configuration)\</LIBLZMA_LIB_DIR>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)'=='x64'" Label="UserMacros">
+    <LIBLZMA_LIB_DIR>..\..\..\xz-win-build\$(BUILD_VSENV)\$(Platform)\$(Configuration)\</LIBLZMA_LIB_DIR>
+  </PropertyGroup>
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="LIBLZMA_INC_DIR">
+      <Value>$(LIBLZMA_INC_DIR)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LIBLZMA_LIB_DIR">
+      <Value>$(LIBLZMA_LIB_DIR)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
