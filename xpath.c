@@ -6572,12 +6572,18 @@ xmlNode *
 xmlXPathNextFollowingSibling(xmlXPathParserContext *ctxt, xmlNode *cur) {
     if ((ctxt == NULL) || (ctxt->context == NULL)) return(NULL);
     if ((ctxt->context->node->type == XML_ATTRIBUTE_NODE) ||
-	(ctxt->context->node->type == XML_NAMESPACE_DECL))
-	return(NULL);
+        (ctxt->context->node->type == XML_NAMESPACE_DECL))
+        return(NULL);
+
     if (cur == (xmlNodePtr) ctxt->context->doc)
         return(NULL);
+
     if (cur == NULL)
-        return(ctxt->context->node->next);
+        cur = ctxt->context->node;
+
+    if (cur->type == XML_DOCUMENT_NODE)
+        return(NULL);
+
     return(cur->next);
 }
 
@@ -6595,17 +6601,23 @@ xmlNode *
 xmlXPathNextPrecedingSibling(xmlXPathParserContext *ctxt, xmlNode *cur) {
     if ((ctxt == NULL) || (ctxt->context == NULL)) return(NULL);
     if ((ctxt->context->node->type == XML_ATTRIBUTE_NODE) ||
-	(ctxt->context->node->type == XML_NAMESPACE_DECL))
-	return(NULL);
+        (ctxt->context->node->type == XML_NAMESPACE_DECL))
+        return(NULL);
+
     if (cur == (xmlNodePtr) ctxt->context->doc)
         return(NULL);
-    if (cur == NULL)
-        return(ctxt->context->node->prev);
-    if ((cur->prev != NULL) && (cur->prev->type == XML_DTD_NODE)) {
-	cur = cur->prev;
-	if (cur == NULL)
-	    return(ctxt->context->node->prev);
+
+    if (cur == NULL) {
+        cur = ctxt->context->node;
+    } else if ((cur->prev != NULL) && (cur->prev->type == XML_DTD_NODE)) {
+        cur = cur->prev;
+        if (cur == NULL)
+            cur = ctxt->context->node;
     }
+
+    if (cur->type == XML_DOCUMENT_NODE)
+        return(NULL);
+
     return(cur->prev);
 }
 
@@ -6640,14 +6652,27 @@ xmlXPathNextFollowing(xmlXPathParserContext *ctxt, xmlNode *cur) {
             cur = (xmlNodePtr) ns->next;
         }
     }
-    if (cur == NULL) return(NULL) ; /* ERROR */
-    if (cur->next != NULL) return(cur->next) ;
+
+    /* ERROR */
+    if (cur == NULL)
+        return(NULL);
+
+    if (cur->type == XML_DOCUMENT_NODE)
+        return(NULL);
+
+    if (cur->next != NULL)
+        return(cur->next);
+
     do {
         cur = cur->parent;
-        if (cur == NULL) break;
-        if (cur == (xmlNodePtr) ctxt->context->doc) return(NULL);
-        if (cur->next != NULL) return(cur->next);
+        if (cur == NULL)
+            break;
+        if (cur == (xmlNodePtr) ctxt->context->doc)
+            return(NULL);
+        if (cur->next != NULL && cur->type != XML_DOCUMENT_NODE)
+            return(cur->next);
     } while (cur != NULL);
+
     return(cur);
 }
 
@@ -6760,10 +6785,13 @@ xmlXPathNextPrecedingInternal(xmlXPathParserContextPtr ctxt,
         }
         ctxt->ancestor = cur->parent;
     }
-    if (cur->type == XML_NAMESPACE_DECL)
+
+    if (cur->type == XML_NAMESPACE_DECL || cur->type == XML_DOCUMENT_NODE)
         return(NULL);
+
     if ((cur->prev != NULL) && (cur->prev->type == XML_DTD_NODE))
 	cur = cur->prev;
+
     while (cur->prev == NULL) {
         cur = cur->parent;
         if (cur == NULL)
@@ -6774,6 +6802,10 @@ xmlXPathNextPrecedingInternal(xmlXPathParserContextPtr ctxt,
             return (cur);
         ctxt->ancestor = cur->parent;
     }
+
+    if (cur->type == XML_DOCUMENT_NODE)
+        return(NULL);
+
     cur = cur->prev;
     while (cur->last != NULL)
         cur = cur->last;

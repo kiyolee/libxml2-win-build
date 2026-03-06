@@ -14,7 +14,7 @@
       <PreprocessorDefinitions>WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>setargv.obj;$(OutDir)libxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>setargv.obj;$(OutDir)libxml2.lib;$(ZLIB_LIB_DIR)libz-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -23,7 +23,7 @@
       <PreprocessorDefinitions>WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>setargv.obj;$(OutDir)libxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>setargv.obj;$(OutDir)libxml2.lib;$(ZLIB_LIB_DIR)libz-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -32,7 +32,7 @@
       <PreprocessorDefinitions>WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>setargv.obj;$(OutDir)libxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>setargv.obj;$(OutDir)libxml2.lib;$(ZLIB_LIB_DIR)libz-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -41,7 +41,7 @@
       <PreprocessorDefinitions>WIN32;_WINDOWS;NOLIBTOOL;_REENTRANT;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>setargv.obj;$(OutDir)libxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>setargv.obj;$(OutDir)libxml2.lib;$(ZLIB_LIB_DIR)libz-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup />

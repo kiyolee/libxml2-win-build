@@ -100,6 +100,7 @@ schematron.c
 shell.c
 testModule.c
 testapi.c
+testcatalog.c
 testchar.c
 testdict.c
 testdso.c
